@@ -1,7 +1,9 @@
 export default function Home() {
   return (
     <>
-      <h1>halo ini h1</h1>
+      <div className="min-h-dvh w-full p-16 mx-auto">
+        <h1 className="text-9xl mt-8">haldskffklj</h1>
+      </div>
     </>
   );
 }
