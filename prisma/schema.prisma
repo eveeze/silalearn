@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id @unique @default(uuid())
+  fullName        String
+  hashedPassword  String
+  email           String    @unique
+  createdAt       DateTime  @default(now())
+  sessions        Session[] 
+  quizResult      QuizResult[]
+}
+
+model Session {
+  id           String   @id @unique @default(uuid())
+  refreshToken String   @default(uuid()) @db.Text
+  isBlocked    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  expiredAt    DateTime
+  user         User?     @relation(fields: [userId], references: [id])
+  userId       String?
+  admin        Admin?   @relation(fields: [adminId], references: [id])
+  adminId      String?
+}
+
+model Admin {
+  id              String        @id @unique @default(uuid())
+  fullName        String
+  image           String?       @unique
+  hashedPassword  String
+  email           String        @unique
+  isEmailVerified Boolean       @default(false)
+  isBlocked       Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  sessions        Session[]
+  courses         Course[]
+}
+
+model Course {
+  id          Int      @id @unique @default(autoincrement())
+  slug        String   @unique
+  title       String   @unique
+  description String?  @db.VarChar(3000)
+  price       Int?
+  createdAt   DateTime @default(now())
+  admin       Admin    @relation(fields: [adminId], references: [id])
+  adminId     String
+  quizzes Quiz[]
+}
+
+model Quiz {
+  id          Int      @id @unique @default(autoincrement())
+  title       String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  questions   Question[]
+  course      Course   @relation(fields: [courseId], references: [id])
+  courseId    Int
+  quizResults QuizResult[]
+}
+model QuizResult {
+  id         Int      @id @unique @default(autoincrement())
+  score      Float    // Menyimpan nilai siswa
+  duration   Int      // Menyimpan waktu yang diperlukan oleh siswa untuk menyelesaikan kuis (dalam detik)
+  startedAt  DateTime // Waktu mulai mengerjakan kuis
+  user       User     @relation(fields: [userId], references: [id]) // Siswa yang mengerjakan kuis
+  userId     String
+  quiz       Quiz     @relation(fields: [quizId], references: [id]) // Kuis yang sedang dikerjakan
+  quizId     Int
+}
+
+model Question {
+  id         Int      @id @unique @default(autoincrement())
+  content    String
+  options    String[]
+  answer     String
+  quiz       Quiz     @relation(fields: [quizId], references: [id])
+  quizId     Int
+}
