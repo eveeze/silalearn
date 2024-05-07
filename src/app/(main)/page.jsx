@@ -32,12 +32,13 @@ export default function Home() {
         <div className="grid grid-cols-2 mt-16 p-12 gap-8 bg-gradient-to-b from-merah-300 to-merah-200">
           <div className="mt-8 space-y-6 text-center">
             <h1 className="text-5xl font-bold text-black mt-32">
-              Perluas Wawasan Dengan <span>SILALEARN</span>
+              Perluas Wawasan Dengan SILALEARN
             </h1>
             <p className="text-black text-2xl mt-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              ac elit lectus. Aenean at tincidunt orci. Nulla eu nulla semper,
-              cursus erat consequat, tempus lacus.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+              facere distinctio illum provident dolorum natus error commodi,
+              dolorem atque rem ipsum! Minus incidunt dicta nisi deleniti? Nam
+              reiciendis voluptas ipsa.
             </p>
             <div className="flex items-center justify-center mt-16 gap-8">
               <button className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500">
