@@ -1,27 +1,30 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <>
-      <footer class="bg-white dark:bg-gray-900">
+      <footer class="bg-merah-300">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
               <a href="/" class="flex items-center">
-                <img
-                  src="https://flowbite.com/docs/images/logo.svg"
-                  class="h-8 me-3"
-                  alt="company Logo"
+                <Image
+                  src={"/logo/logo_silalearn.png"}
+                  width={64}
+                  height={64}
+                  alt="logo silalearn"
                 />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap ml-4">
                   Silalearn
                 </span>
               </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 class="mb-6 text-sm font-semibold text-black uppercase ">
                   Resources
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <ul class="text-black  font-medium">
                   <li class="mb-4">
                     <a href="https://flowbite.com/" class="hover:underline">
                       Flowbite
@@ -35,10 +38,10 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 class="mb-6 text-sm font-semibold text-black uppercase ">
                   Follow us
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <ul class="text-black  font-medium">
                   <li class="mb-4">
                     <a
                       href="https://github.com/verdex-id"
@@ -59,10 +62,10 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 class="mb-6 text-sm font-semibold text-black uppercase">
                   Legal
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <ul class="text-black  font-medium">
                   <li class="mb-4">
                     <a href="#" class="hover:underline">
                       Privacy Policy
@@ -77,9 +80,9 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <hr class="my-6 border-black sm:mx-auto lg:my-8" />
           <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            <span class="text-sm text-black sm:text-center ">
               © 2024{" "}
               <a href="https://flowbite.com/" class="hover:underline">
                 Verdex
@@ -87,10 +90,7 @@ export default function Footer() {
               . All Rights Reserved.
             </span>
             <div class="flex mt-4 sm:justify-center sm:mt-0">
-              <a
-                href="#"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-              >
+              <a href="#" class="text-black hover:text-gray-900 ">
                 <svg
                   class="w-4 h-4"
                   aria-hidden="true"
@@ -106,10 +106,7 @@ export default function Footer() {
                 </svg>
                 <span class="sr-only">Facebook page</span>
               </a>
-              <a
-                href="#"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-              >
+              <a href="#" class="text-black hover:text-gray-900  ms-5">
                 <svg
                   class="w-4 h-4"
                   aria-hidden="true"
@@ -121,10 +118,7 @@ export default function Footer() {
                 </svg>
                 <span class="sr-only">Discord community</span>
               </a>
-              <a
-                href="#"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-              >
+              <a href="#" class="text-black hover:text-gray-900  ms-5">
                 <svg
                   class="w-4 h-4"
                   aria-hidden="true"
@@ -140,10 +134,7 @@ export default function Footer() {
                 </svg>
                 <span class="sr-only">Twitter page</span>
               </a>
-              <a
-                href="#"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-              >
+              <a href="#" class="text-black hover:text-gray-900  ms-5">
                 <svg
                   class="w-4 h-4"
                   aria-hidden="true"
@@ -159,10 +150,7 @@ export default function Footer() {
                 </svg>
                 <span class="sr-only">GitHub account</span>
               </a>
-              <a
-                href="#"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-              >
+              <a href="#" class="text-black hover:text-gray-900  ms-5">
                 <svg
                   class="w-4 h-4"
                   aria-hidden="true"
