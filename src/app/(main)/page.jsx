@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-
+import { FiArrowUpRight } from "react-icons/fi";
 export default function Home() {
   const [activeQuestion, setActiveQuestion] = useState(null);
 
@@ -72,7 +72,7 @@ export default function Home() {
             <h1 className="text-6xl font-bold text-left">About Us</h1>
             <p className="text-2xl font-normal mt-6">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
+              industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book. It has
               survived not only five centuries, but also the leap into
@@ -109,15 +109,7 @@ export default function Home() {
                             <p className="text-paragraph">{data.answer}</p>
                           )}
                         </div>
-                        <img
-                          src="/icons/arrow_outward.svg"
-                          alt="outwarded icon"
-                          width={20}
-                          height={20}
-                          className={`absolute top-0 right-0 ${
-                            activeQuestion === index ? "-rotate-90" : ""
-                          }`}
-                        />
+                        <FiArrowUpRight className="flex float-end " />
                       </div>
                     </button>
                   </div>
