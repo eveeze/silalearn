@@ -28,8 +28,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="min-h-dvh w-full mx-auto text-black">
-        <div className="grid grid-cols-2 mt-16 p-12 gap-8 bg-gradient-to-b from-merah-300 to-merah-200">
+      <div className="min-h-dvh w-full mx-auto max-w-screen-2xl">
+        <div className="grid grid-cols-2 mt-16 p-8 gap-8 bg-gradient-to-b from-merah-300 to-merah-200">
           <div className="mt-8 space-y-6 text-center">
             <h1 className="text-5xl font-bold text-black mt-32">
               Perluas Wawasan Dengan SILALEARN
