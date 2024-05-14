@@ -1,17 +1,53 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Input from "@/components/input";
 import Button from "@/components/button";
-export default function loginPage() {
+
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("/api/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        setErrorMessage(data.message || "Login failed");
+        return;
+      }
+
+      // Login successful, redirect to home page or dashboard
+      router.push("/");
+    } catch (error) {
+      console.error("Login failed:", error);
+      setErrorMessage("Login failed");
+    }
+  };
+
   return (
     <>
-      <form action="">
-        <div className=" bg-merah-100">
-          <div className="grid grid-cols-1 md:grid-cols-2 p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center  ">
-            <div className=" flex items-center justify-center">
+      <form onSubmit={handleLogin}>
+        <div className="bg-merah-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center">
+            <div className="flex items-center justify-center">
               <div className="hidden md:block">
                 <Image
-                  src={"/image/login_bg.png"}
+                  src="/image/login_bg.png"
                   alt="login background"
                   width={500}
                   height={500}
@@ -23,7 +59,7 @@ export default function loginPage() {
               <div className="p-4 space-y-4">
                 <div className="flex gap-8">
                   <Image
-                    src={"/logo/logo_silalearn.png"}
+                    src="/logo/logo_silalearn.png"
                     width={50}
                     height={50}
                     alt="logo silalearn"
@@ -37,28 +73,61 @@ export default function loginPage() {
                   </p>
                   <div className="mt-2">
                     <Input
-                      type={"text"}
-                      id={"email"}
-                      name={"email"}
-                      title={"Email"}
-                      placeholder={"something@gmail"}
-                      className={"mt-4"}
+                      type="email"
+                      id="email"
+                      name="email"
+                      title="Email"
+                      placeholder="something@gmail"
+                      className="mt-4"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     <Input
-                      type={"text"}
-                      id={"Password"}
-                      name={"Password"}
-                      title={"Password"}
-                      placeholder={"********"}
-                      className={"mt-4"}
+                      type="password"
+                      id="password"
+                      name="password"
+                      title="Password"
+                      placeholder="********"
+                      className="mt-4"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
+                  </div>
+                  <div class="grid grid-cols-2 items-start mt-2 ">
+                    <div class="flex items-center ">
+                      <Input
+                        type="checkbox"
+                        id="remember"
+                        name="remember"
+                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 "
+                      />
+                      <div class="px-2 mt-[10px] text-sm">
+                        <label
+                          for="remember"
+                          className="text-black font-semibold mt-4"
+                        >
+                          Remember me
+                        </label>
+                      </div>
+                    </div>
+                    <div>
+                      <Link
+                        href={""}
+                        className="flex justify-end font-semibold mt-4 text-sm"
+                      >
+                        Forgot Password
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div>
-                  <Button onClick={""}  >Sign in</Button>
+                  <Button type="submit">Sign in</Button>
                   <p>
-                    Belum punya akun ? <span>Sign Up</span>
+                    Belum punya akun ? <Link href={"/register"}>Sign Up</Link>
                   </p>
+                  {errorMessage && (
+                    <p className="text-red-500">{errorMessage}</p>
+                  )}
                 </div>
               </div>
             </div>
