@@ -55,7 +55,7 @@ export default function loginPage() {
                   </div>
                 </div>
                 <div>
-                  <Button onClick={""} children={"sign in"} >{children}</Button>
+                  <Button onClick={""}  >Sign in</Button>
                   <p>
                     Belum punya akun ? <span>Sign Up</span>
                   </p>
