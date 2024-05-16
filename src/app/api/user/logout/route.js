@@ -1,22 +1,15 @@
+import { serialize } from "cookie";
 import { NextResponse } from "next/server";
-import { parse } from "cookie";
 
-export default async function logoutHandler(req, res) {
-  if (req.method !== "POST") {
-    return NextResponse.methodNotAllowed();
-  }
+export async function POST(req, res) {
+  res.setHeader(
+    "Set-Cookie",
+    serialize("authToken", "", {
+      maxAge: -1, // Set the cookie expiration in the past to delete it
+      httpOnly: true,
+      path: "/", // Cookie can be accessed from the entire site
+    })
+  );
 
-  const cookies = parse(req.headers.cookie || "");
-  if (cookies.rememberMe) {
-    res.setHeader(
-      "Set-Cookie",
-      serialize("rememberMe", "", {
-        maxAge: -1,
-        httpOnly: true,
-        path: "/",
-      })
-    );
-  }
-
-  return NextResponse.json({ message: "Logout successful" });
+  return NextResponse.json({ message: "Logged out" }, { status: 200 });
 }
