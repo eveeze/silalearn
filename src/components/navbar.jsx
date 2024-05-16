@@ -1,14 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get("/api/user/session");
+        if (response.status === 200) {
+          setUser(response.data.user);
+        }
+      } catch (error) {
+        console.log("User not authenticated");
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
+  };
+
+  const handleLogout = async () => {
+    await axios.post("/api/user/logout");
+    setUser(null);
+    window.location.href = "/";
   };
 
   return (
@@ -31,18 +54,30 @@ export default function Navbar() {
           </Link>
 
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-5">
-            <button
-              type="button"
-              className="text-black bg-merah-50 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center "
-            >
-              sign up
-            </button>
-            <button
-              type="button"
-              className="text-black bg-merah-50 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center "
-            >
-              sign in
-            </button>
+            {user ? (
+              <>
+                <div className="flex items-center space-x-3">
+                  <span className="text-black">{user.fullName}</span>
+                  <button
+                    onClick={handleLogout}
+                    className="text-black bg-merah-50 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <Link href="/register">
+                  <button
+                    type="button"
+                    className="text-black bg-merah-50 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center "
+                  >
+                    Sign Up
+                  </button>
+                </Link>
+              </>
+            )}
             <button
               onClick={toggleNav}
               type="button"
