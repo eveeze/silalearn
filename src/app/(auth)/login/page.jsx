@@ -110,14 +110,6 @@ export default function LoginPage() {
                         </label>
                       </div>
                     </div>
-                    <div>
-                      <Link
-                        href={""}
-                        className="flex justify-end font-semibold mt-4 text-sm"
-                      >
-                        Forgot Password
-                      </Link>
-                    </div>
                   </div>
                 </div>
                 <div>
