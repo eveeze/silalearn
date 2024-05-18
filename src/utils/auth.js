@@ -18,3 +18,18 @@ export const generateAuthToken = (user) => {
     expiresIn: "7d", // Default expiration, override for remember me
   });
 };
+
+export const getSession = (req) => {
+  const token = req.cookies.authToken;
+
+  if (!token) {
+    return null;
+  }
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    return decoded;
+  } catch (error) {
+    return null;
+  }
+};
