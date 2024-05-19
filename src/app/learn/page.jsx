@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Search from "@/components/search";
 import Card from "@/components/card";
+
+
 const dummyCourses = [
   {
     id: 1,
-    title: "Pancasila sebagai dasar negara",
+    title: "Pengertian Pancasila sebagai Dasar Negara",
     description: "pelajari pancasila sebagai dasar negara",
     price: 0,
   },
@@ -19,7 +21,7 @@ const dummyCourses = [
   },
   {
     id: 3,
-    title: "Sejarah Pancasila",
+    title: "Sejarah Lahirnya Pancasila",
     description: "Pelajari bagaimana sejarah pancasila ",
     price: 299.99,
   },
@@ -42,7 +44,7 @@ export default function CoursesPage() {
     }, []);
   }
   return (
-    <div className="w-full min-h-dvh mx-auto space-y-8 bg-merah-100 p-8">
+    <div className="w-full min-h-dvh mx-auto space-y-8 bg-merah-100 p-8 max-w-screen-xl">
       <div className="grid grid-cols-2">
         <div>
           <h1 className="text-6xl font-bold mt-16">Courses</h1>

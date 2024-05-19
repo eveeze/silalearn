@@ -31,9 +31,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="min-h-dvh w-full mx-auto ">
-        <div className="grid grid-cols-2 mt-16 p-8 gap-8 bg-gradient-to-b from-merah-300 to-merah-200">
-          <div className="mt-8 space-y-6 text-center">
+      <div className="min-h-dvh w-full mx-auto max-w-screen-xl">
+        <div className="grid grid-cols-2 mt-16 p-8 gap-8 bg-merah-100">
+          <div className="mt-8 space-y-6 text-left">
             <h1 className="text-5xl font-bold text-black mt-32">
               Perluas Wawasan Dengan SILALEARN
             </h1>
@@ -47,22 +47,20 @@ export default function Home() {
               <button className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500">
                 Mulai Belajar
               </button>
-              <button className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500">
-                Learn More
-              </button>
             </div>
           </div>
           <div className="flex items-center justify-center">
             <Image
               src={"/image/hero.png"}
-              width={548}
-              height={394}
+              width={500}
+              height={300}
               alt="hero image"
               className="mt-8"
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto p-8 bg-gradient-to-t from-merah-300 to-merah-200">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto p-8 bg-merah-100">
           <div className="flex items-center justify-center">
             <Image
               src={"/image/about.png"}
@@ -71,6 +69,7 @@ export default function Home() {
               alt="About Image"
             />
           </div>
+
           <div id="about" className="mt-14">
             <h1 className="text-6xl font-bold text-left">About Us</h1>
             <p className="text-2xl font-normal mt-6">
@@ -87,7 +86,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="min-h-dvh bg-gradient-to-b from-merah-300 to-merah-200">
+
+        <div className="min-h-dvh bg-merah-100">
           <div className="w-full max-w-screen-xl mx-auto px-8">
             <div className="text-black">
               <div className="border-2 border-transparent border-opacity-25 rounded-3xl mb-4 flex flex-col md:flex-row items-center">
@@ -100,7 +100,7 @@ export default function Home() {
                 {dummyData.map((data, index) => (
                   <div key={index} className="mb-4">
                     <button
-                      className="border-2 border-white border-opacity-25 rounded-3xl p-6 mt-4 mb-4 w-full"
+                      className="border-2 border-black border-opacity-25 rounded-3xl p-6 mt-4 mb-4 w-full"
                       onClick={() => toggleQuestion(index)}
                     >
                       <div className="relative text-left">

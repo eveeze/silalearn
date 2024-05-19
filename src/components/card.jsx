@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Card({ course }) {
   return (
-    <div className="bg-red-300 shadow-lg rounded-lg overflow-hidden mx-auto border-4 border-red-400">
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-auto border-2 border-black">
       <div className="p-8 flex justify-center items-center">
         <Image
           src={"/logo/logo_silalearn.png"}
@@ -21,7 +21,7 @@ export default function Card({ course }) {
         <p>${course.price}</p>
         <div></div>
         <Link
-          className="text-white text-lg hover:underline mt-4 block"
+          className="text-black text-lg hover:underline mt-4 block"
           href={"learn/course/" + course.slug}
         >
           Learn More

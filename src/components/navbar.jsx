@@ -42,7 +42,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-merah-300 fixed w-full z-20 top-0 start-0">
+    <nav className="bg-white fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
         <Link
           href="/"
@@ -65,7 +65,7 @@ export default function Navbar() {
               <span className="text-black">{user.fullName}</span>
               <button
                 onClick={handleLogout}
-                className="text-black bg-merah-50 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                className="text-black bg-merah-300 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
               >
                 Logout
               </button>
@@ -74,7 +74,7 @@ export default function Navbar() {
             <Link href="/register">
               <button
                 type="button"
-                className="text-black bg-merah-50 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                className="text-white bg-merah-300 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
               >
                 Sign Up
               </button>
