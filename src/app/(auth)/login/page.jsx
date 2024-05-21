@@ -77,7 +77,8 @@ export default function LoginPage() {
                       id="email"
                       name="email"
                       title="Email"
-                      placeholder="something@gmail"
+                      place
+                      holder="something@gmail"
                       className="mt-4"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -109,14 +110,6 @@ export default function LoginPage() {
                           Remember me
                         </label>
                       </div>
-                    </div>
-                    <div>
-                      <Link
-                        href={""}
-                        className="flex justify-end font-semibold mt-4 text-sm"
-                      >
-                        Forgot Password
-                      </Link>
                     </div>
                   </div>
                 </div>

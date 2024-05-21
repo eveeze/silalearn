@@ -1,5 +1,9 @@
+// app/middleware.js
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export async function middleware(req) {
   try {
@@ -9,12 +13,13 @@ export async function middleware(req) {
       return NextResponse.next();
     }
 
+    const decoded = jwt.verify(authToken, JWT_SECRET);
     const session = await prisma.session.findUnique({
       where: { token: authToken },
       include: { user: true },
     });
 
-    if (!session) {
+    if (!session || session.user.id !== decoded.id) {
       return NextResponse.next();
     }
 

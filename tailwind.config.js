@@ -12,6 +12,11 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        spartan: ["var(--font-spartan)"],
+        righteous: ["var(--font-righteous)"],
+        josefin: ["var(--font-josefin)"],
+      },
       colors: {
         merah: {
           50: "#fbe9e9",
