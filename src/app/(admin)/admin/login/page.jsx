@@ -1,31 +1,9 @@
-import Input from "@/components/input";
-
-export default function loginAdmin() {
+export default function LoginAdmin() {
   return (
-    <>
-      <div className="w-full min-h-dvh mx-auto p-8">
-        <div className="flex items-center justify-center rounded-2xl max-w-screen-xl ">
-          <div>
-            <h1>Login Page</h1>
-          </div>
-          <div>
-            <Input
-              id={"emailAdmin"}
-              name={"emailAdmin"}
-              title={"Email"}
-              type={"email"}
-              className=""
-            />
-            <Input
-              id={"password"}
-              name={"password"}
-              title={"Password"}
-              type={"password"}
-              className=""
-            />
-          </div>
-        </div>
+    <div className="max-w-screen-xl min-h-dvh mx-auto space-y-8 p-8">
+      <div>
+        <h1>halo whatsap ges</h1>
       </div>
-    </>
+    </div>
   );
 }

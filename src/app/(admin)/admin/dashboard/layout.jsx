@@ -1,13 +1,12 @@
 import Footer from "@/components/footer";
 import NavbarAdmin from "@/components/navbarAdmin";
-
 export const metadata = {
-  title: "Silalearn",
-  description: "Web Pembelajaran Pancasila",
+  title: "Admin Page Silalearn",
+  description: "Halaman Admin Silalearn",
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="text-black">
+    <html lang="en" className="text-black ">
       <body>
         <NavbarAdmin />
         {children}

@@ -77,7 +77,8 @@ export default function LoginPage() {
                       id="email"
                       name="email"
                       title="Email"
-                      placeholder="something@gmail"
+                      place
+                      holder="something@gmail"
                       className="mt-4"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}

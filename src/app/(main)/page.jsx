@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
+import { josefin } from "../layout";
+import { spartan } from "../layout";
 export default function Home() {
   const [activeQuestion, setActiveQuestion] = useState(null);
 
@@ -20,7 +22,7 @@ export default function Home() {
     {
       question: "Apakah Silalearn gratis?",
       answer:
-        "Silalearn menawarkan akses gratis ke sebagian besar kontennya. Pengguna dapat menikmati berbagai materi pembelajaran dan modul interaktif tanpa biaya. Namun, untuk fitur premium seperti kursus mendalam, sertifikasi, dan konsultasi dengan ahli, mungkin dikenakan biaya tertentu.",
+        "Silalearn menawarkan akses gratis . Pengguna dapat menikmati berbagai materi pembelajaran dan modul interaktif tanpa biaya.",
     },
     {
       question: "Apa jenis materi pembelajaran yang tersedia di SilaLearn?",
@@ -33,15 +35,16 @@ export default function Home() {
     <>
       <div className="min-h-dvh w-full mx-auto max-w-screen-xl">
         <div className="grid grid-cols-2 mt-16 p-8 gap-8 bg-merah-100">
-          <div className="mt-8 space-y-6 text-left">
-            <h1 className="text-5xl font-bold text-black mt-32">
+          <div className="mt-8 space-y-4 text-left">
+            <h1
+              className={`text-[64px] font-bold text-black mt-32 ${spartan.className}`}
+            >
               Perluas Wawasan Dengan SILALEARN
             </h1>
-            <h2 className="text-lg">
-              Jelajahi Semangat Pancasila, program edukasi seru yang dikemas
-              dengan video animasi informatif dan kuis interaktif! Temukan makna
-              mendalam Pancasila, uji pemahamanmu, dan dapatkan hadiah menarik!
-              Cocok untuk pelajar, masyarakat umum, dan pecinta Indonesia.
+            <h2 className={`${josefin.className} text-2xl font-medium`}>
+              Halo teman-teman! Di SilaLearn, kalian bisa belajar Pancasila
+              dengan cara yang seru. Temukan video, cerita, kuis, dan permainan
+              menarik di sini. Ayo mulai belajar dan jadi pahlawan Pancasila!
             </h2>
             <div className="flex items-center justify-center mt-16 gap-8">
               <button className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500">
@@ -51,7 +54,7 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src={"/image/hero.png"}
+              src={"/image/main.png"}
               width={500}
               height={300}
               alt="hero image"
@@ -61,7 +64,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto p-8 bg-merah-100">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center mt-20">
             <Image
               src={"/image/about.png"}
               width={500}
@@ -71,8 +74,12 @@ export default function Home() {
           </div>
 
           <div id="about" className="mt-14">
-            <h1 className="text-6xl font-bold text-left">About Us</h1>
-            <p className="text-2xl font-normal mt-6">
+            <h1
+              className={`text-[64px] ${spartan.className} font-bold text-left`}
+            >
+              About Us
+            </h1>
+            <p className={`text-2xl font-medium mt-6 ${josefin.className}`}>
               Silalearn hadir sebagai solusi belajar yang menyenangkan dan
               interaktif bagi anak-anak. Didirikan dengan visi untuk menumbuhkan
               kecintaan belajar pada anak-anak, Silalearn menawarkan berbagai
@@ -91,7 +98,9 @@ export default function Home() {
           <div className="w-full max-w-screen-xl mx-auto px-8">
             <div className="text-black">
               <div className="border-2 border-transparent border-opacity-25 rounded-3xl mb-4 flex flex-col md:flex-row items-center">
-                <h1 className="text-6xl font-bold mb-8 text-center justify-center flex items-center gap-4 mt-16">
+                <h1
+                  className={`text-6xl font-bold mb-8 text-center justify-center flex items-center gap-4 mt-16 ${spartan.className}`}
+                >
                   FAQ
                 </h1>
               </div>
@@ -105,11 +114,17 @@ export default function Home() {
                     >
                       <div className="relative text-left">
                         <div>
-                          <h1 className="font-bold text-2xl">
+                          <h1
+                            className={`font-bold text-2xl ${spartan.className}`}
+                          >
                             {data.question}
                           </h1>
                           {activeQuestion === index && (
-                            <p className="text-paragraph mt-2">{data.answer}</p>
+                            <p
+                              className={`text-paragraph mt-2 ${josefin.className}`}
+                            >
+                              {data.answer}
+                            </p>
                           )}
                         </div>
                         <FiArrowUpRight className="flex float-end size-8 " />

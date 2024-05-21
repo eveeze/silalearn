@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
-
+import { righteous } from "@/app/layout";
 export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [user, setUser] = useState(null);
@@ -42,7 +42,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white fixed w-full z-20 top-0 start-0">
+    <nav className="bg-merah-100 fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
         <Link
           href="/"
@@ -54,7 +54,9 @@ export default function Navbar() {
             width={32}
             height={32}
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">
+          <span
+            className={`self-center text-2xl whitespace-nowrap ${righteous.className}`}
+          >
             Silalearn
           </span>
         </Link>

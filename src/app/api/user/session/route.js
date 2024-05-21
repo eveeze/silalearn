@@ -6,7 +6,6 @@ import { NextResponse } from "next/server";
 export async function GET(req) {
   const JWT_SECRET = process.env.JWT_SECRET;
   const authToken = req.cookies.get("authToken");
-
   if (!authToken) {
     return NextResponse.json(
       { message: "Authentication token not found" },
@@ -15,7 +14,7 @@ export async function GET(req) {
   }
 
   try {
-    const decoded = jwt.verify(authToken, JWT_SECRET);
+    const decoded = jwt.verify(authToken.value, JWT_SECRET);
     const user = await prisma.user.findUnique({
       where: { id: decoded.userId },
     });
