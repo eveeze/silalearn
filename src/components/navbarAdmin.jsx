@@ -1,39 +1,34 @@
 "use client";
 import { useState } from "react";
-
+import { josefin } from "@/app/layout";
+import Link from "next/link";
 export default function NavbarAdmin() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white p-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center max-w-screen-xl">
-        <div className="text-black text-2xl font-semibold font-['Inter']">
-          SilaLearn
-        </div>
+    <nav className={`bg-merah-100 p-4 shadow-sm `}>
+      <div
+        className={`container mx-auto flex justify-between items-center max-w-screen-xl ${josefin.className}`}
+      >
+        <div className="text-black text-2xl font-semibold ">SilaLearn</div>
         <div className="hidden md:flex space-x-8">
-          <a href="/" className="text-black text-xl font-normal font-['Inter']">
+          <Link href="/" className="text-black text-xl font-normal ">
             Home
-          </a>
-          <a
-            href="/course"
-            className="text-black text-xl font-normal font-['Inter']"
-          >
+          </Link>
+          <Link href="/course" className="text-black text-xl font-normal ">
             Course
-          </a>
-          <a
-            href="/quiz"
-            className="text-black text-xl font-normal font-['Inter']"
-          >
+          </Link>
+          <Link href="/quiz" className="text-black text-xl font-normal ">
             Quiz
-          </a>
+          </Link>
         </div>
         <div className="flex items-center space-x-5">
-          <a
+          <Link
             href="/signin"
-            className="px-4 py-2 bg-red-500 text-white text-xs font-black font-['Inter'] rounded"
+            className="px-4 py-2 bg-red-500 text-white text-xs font-black  rounded"
           >
             Sign In
-          </a>
+          </Link>
           <button
             className="md:hidden text-black"
             aria-label="Toggle menu"
@@ -59,30 +54,24 @@ export default function NavbarAdmin() {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-white p-4 space-y-2 shadow-md">
-          <a
-            href="/"
-            className="block text-black text-xl font-normal font-['Inter']"
-          >
+          <Link href="/" className="block text-black text-xl font-normal ">
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/course"
-            className="block text-black text-xl font-normal font-['Inter']"
+            className="block text-black text-xl font-normal "
           >
             Course
-          </a>
-          <a
-            href="/quiz"
-            className="block text-black text-xl font-normal font-['Inter']"
-          >
+          </Link>
+          <Link href="/quiz" className="block text-black text-xl font-normal ">
             Quiz
-          </a>
-          <a
+          </Link>
+          <Link
             href="/signin"
-            className="block px-4 py-2 bg-red-500 text-white text-xs font-black font-['Inter'] rounded"
+            className="block px-4 py-2 bg-red-500 text-white text-xs font-black  rounded"
           >
             Sign In
-          </a>
+          </Link>
         </div>
       )}
     </nav>

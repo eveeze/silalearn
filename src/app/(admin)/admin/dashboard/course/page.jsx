@@ -1,5 +1,6 @@
 import AdminButton from "@/components/adminButton";
 import AdminCard from "@/components/adminCard";
+import { spartan } from "@/app/layout";
 const dummyCourses = [
   {
     id: 1,
@@ -22,7 +23,7 @@ const dummyCourses = [
 export default function courseDashboard() {
   return (
     <>
-      <div className=" min-h-dvh max-w-screen-xl mx-auto space-y-8 p-8">
+      <div className={` min-h-dvh max-w-screen-xl mx-auto space-y-8 p-8 `}>
         <div className="flex items-center justify-center">
           <h1 className="text-7xl mt-4  font-bold font-spartan">
             Admin Dashboard
