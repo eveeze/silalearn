@@ -46,16 +46,14 @@ export default function CoursesPage() {
     <div className="w-full min-h-dvh mx-auto space-y-8 bg-merah-100 p-8 max-w-screen-xl">
       <div className="grid grid-cols-2">
         <div>
-          <h1 className={`text-5xl font-bold mt-20 ${spartan.className}`}>
+          <h1
+            className={` text-2xl md:text-3xl lg:text-[40px] font-bold mt-20 ${spartan.className}`}
+          >
             Video Pembelajaran
           </h1>
         </div>
         <div className="mt-12">
-          <Search
-            placeholder="Cari Video Pembelajaran"
-            id={"search"}
-            name={"search"}
-          />
+          <Search placeholder="Cari Video " id={"search"} name={"search"} />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">

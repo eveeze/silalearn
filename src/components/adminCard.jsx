@@ -25,12 +25,12 @@ export default function AdminCard({ course }) {
         </p>
         <div className="grid grid-cols-2 gap-8 items-center mt-4">
           <div>
-            <AdminButton className="!bg-white border-2 border-merah-300 text-merah-300 transition-colors duration-300 hover:!bg-merah-200">
+            <AdminButton className="!bg-white border-2 border-merah-300 !text-merah-300 transition-colors duration-300 hover:!bg-merah-200">
               Edit Course
             </AdminButton>
           </div>
           <div>
-            <AdminButton className="!bg-merah-300 transition-colors duration-300 hover:!bg-red-300">
+            <AdminButton className="!bg-merah-300 transition-colors duration-300 hover:!bg-merah-700">
               Delete Course
             </AdminButton>
           </div>
