@@ -63,11 +63,13 @@ export default function LoginPage() {
                     height={50}
                     alt="logo silalearn"
                   />
-                  <h1 className="mt-2 text-2xl font-bold ">SILALEARN</h1>
+                  <h1 className="mt-2 text-2xl font-bold text-white ">
+                    SILALEARN
+                  </h1>
                 </div>
                 <div>
-                  <p className="text-xl font-bold">Selamat Datang</p>
-                  <p className="text-md text-regular mt-2">
+                  <p className="text-xl font-bold text-white">Selamat Datang</p>
+                  <p className="text-md text-white text-regular mt-2">
                     Permudah Belajar Pancasila dengan SILALEARN
                   </p>
                   <div className="mt-2">
@@ -104,7 +106,7 @@ export default function LoginPage() {
                       <div class="px-2 mt-[10px] text-sm">
                         <label
                           for="remember"
-                          className="text-black font-semibold mt-4"
+                          className="text-white font-semibold mt-4"
                         >
                           Remember me
                         </label>
@@ -114,8 +116,11 @@ export default function LoginPage() {
                 </div>
                 <div>
                   <Button type="submit">Sign in</Button>
-                  <p>
-                    Belum punya akun ? <Link href={"/register"}>Sign Up</Link>
+                  <p className="text-white">
+                    Belum punya akun ?{" "}
+                    <Link className="hover:underline" href={"/register"}>
+                      Sign Up
+                    </Link>
                   </p>
                   {errorMessage && (
                     <p className="text-red-500">{errorMessage}</p>

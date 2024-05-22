@@ -12,10 +12,16 @@ export default function NavbarAdmin() {
       >
         <div className="text-black text-2xl font-semibold ">SilaLearn</div>
         <div className="hidden md:flex space-x-8">
-          <Link href="/" className="text-black text-xl font-normal ">
+          <Link
+            href="/admin/dashboard"
+            className="text-black text-xl font-normal "
+          >
             Home
           </Link>
-          <Link href="/course" className="text-black text-xl font-normal ">
+          <Link
+            href="/admin/dashboard/course"
+            className="text-black text-xl font-normal "
+          >
             Course
           </Link>
           <Link href="/quiz" className="text-black text-xl font-normal ">

@@ -53,11 +53,13 @@ export default function RegisterPage() {
                   height={50}
                   alt="logo silalearn"
                 />
-                <h1 className="mt-4 text-2xl font-bold">SILALEARN</h1>
+                <h1 className="mt-4 text-2xl font-bold text-white">
+                  SILALEARN
+                </h1>
               </div>
               <div>
-                <p className="text-xl font-bold">Selamat Datang</p>
-                <p className="text-md text-regular mt-2">
+                <p className="text-xl font-bold text-white">Selamat Datang</p>
+                <p className="text-md text-regular mt-2 text-white">
                   Daftar sekarang dan improve cara belajar Pancasila anda!!!
                 </p>
                 <div className="mt-2">
@@ -66,7 +68,7 @@ export default function RegisterPage() {
                     id="name"
                     name="name"
                     title="Full Name"
-                    placeholder="Agil Ghani"
+                    placeholder="Masukan Nama Anda"
                     className="mt-4"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -97,8 +99,11 @@ export default function RegisterPage() {
               </div>
               <div>
                 <Button type="submit">Sign up</Button>
-                <p>
-                  Sudah memiliki akun? <Link href="/login">Sign In</Link>
+                <p className="text-white">
+                  Sudah memiliki akun?{" "}
+                  <Link className="hover:underline" href="/login">
+                    Sign In
+                  </Link>
                 </p>
                 {errorMessage && <p className="text-red-500">{errorMessage}</p>}
               </div>
