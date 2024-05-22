@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Input from "@/components/input";
 import Button from "@/components/button";
-
+import { josefin } from "@/app/layout";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +31,6 @@ export default function LoginPage() {
         return;
       }
 
-      // Login successful, redirect to home page or dashboard
       router.push("/");
     } catch (error) {
       console.error("Login failed:", error);
@@ -41,7 +40,7 @@ export default function LoginPage() {
 
   return (
     <>
-      <form onSubmit={handleLogin}>
+      <form className={`${josefin.className}`} onSubmit={handleLogin}>
         <div className="bg-merah-100">
           <div className="grid grid-cols-1 md:grid-cols-2 p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center">
             <div className="flex items-center justify-center">
@@ -64,7 +63,7 @@ export default function LoginPage() {
                     height={50}
                     alt="logo silalearn"
                   />
-                  <h1 className="mt-2 text-2xl font-semibold ">SILALEARN</h1>
+                  <h1 className="mt-2 text-2xl font-bold ">SILALEARN</h1>
                 </div>
                 <div>
                   <p className="text-xl font-bold">Selamat Datang</p>
@@ -77,12 +76,12 @@ export default function LoginPage() {
                       id="email"
                       name="email"
                       title="Email"
-                      place
-                      holder="something@gmail"
+                      placeholder="something@gmail"
                       className="mt-4"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
+                    <br />
                     <Input
                       type="password"
                       id="password"

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Input from "@/components/input";
 import Button from "@/components/button";
-
+import { josefin } from "@/app/layout";
 export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ export default function RegisterPage() {
 
   return (
     <div className="bg-merah-100">
-      <form onSubmit={handleRegister}>
+      <form className={`${josefin.className}`} onSubmit={handleRegister}>
         <div className="grid grid-cols-1 md:grid-cols-2 p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center">
           <div className="p-8 space-y-4 border-4 border-merah-400 rounded-2xl bg-merah-300">
             <div className="p-4 space-y-4">
@@ -53,7 +53,7 @@ export default function RegisterPage() {
                   height={50}
                   alt="logo silalearn"
                 />
-                <h1 className="mt-2 text-2xl font-semibold">SILALEARN</h1>
+                <h1 className="mt-4 text-2xl font-bold">SILALEARN</h1>
               </div>
               <div>
                 <p className="text-xl font-bold">Selamat Datang</p>
@@ -71,6 +71,7 @@ export default function RegisterPage() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
+                  <br />
                   <Input
                     type="email"
                     id="email"
@@ -81,6 +82,7 @@ export default function RegisterPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
+                  <br />
                   <Input
                     type="password"
                     id="Password"
