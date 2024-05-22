@@ -76,7 +76,7 @@ export default function Navbar() {
             <Link href="/register">
               <button
                 type="button"
-                className="text-white bg-merah-300 hover:bg-merah-100 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                className="text-white bg-merah-300 hover:bg-merah-100 focus:ring-2 focus:outline-none focus:ring-red-300 hover:border-2 hover:border-merah-300 hover:text-merah-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
               >
                 Sign Up
               </button>

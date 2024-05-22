@@ -4,7 +4,7 @@ export default function Button({ onClick, children }) {
   return (
     <button
       onClick={onClick}
-      className="text-white w-full bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-8 py-4 text-center me-2 mb-2 mt-4"
+      className="text-black w-full border-2 border-merah-800 bg-merah-100 focus:ring-2 focus:outline-none focus:ring-merah-700  shadow-lg shadow-red-500/50 dark:shadow-lg hover:bg-merah-200 hover:border-2 hover:border-merah-700 font-medium rounded-xl text-sm px-8 py-4 text-center me-2 mb-2 mt-4"
     >
       {children}
     </button>
