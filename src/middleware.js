@@ -30,3 +30,25 @@ export async function middleware(req) {
     return NextResponse.next();
   }
 }
+
+export async function authenticateToken(req, tokenName = "authToken") {
+  const token = req.cookies.get(tokenName)?.value;
+  if (!token) return null;
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const user = await prisma.user.findUnique({
+      where: { id: decoded.userId },
+    });
+
+    return user ? { ...user, role: decoded.role } : null;
+  } catch (error) {
+    return null;
+  }
+}
+export function isAdmin(req, res, next) {
+  if (req.user.role !== "ADMIN") {
+    return res.status(403).json({ error: "Access denied. Admins only." });
+  }
+  next();
+}
