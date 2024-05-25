@@ -8,23 +8,15 @@ datasource db {
 }
 
 model User {
-  id              String    @id @unique @default(uuid())
+  id              String      @id @unique @default(uuid())
   fullName        String
   hashedPassword  String
-  email           String    @unique
+  email           String      @unique
+  role            Role        @default(USER)
   sessions        Session[]
-  createdAt       DateTime  @default(now())
-  quizResult      QuizResult[]
-}
-
-model Admin {
-  id              String        @id @unique @default(uuid())
-  fullName        String
-  image           String?       @unique
-  hashedPassword  String
-  email           String        @unique
-  createdAt       DateTime      @default(now())
-  courses         Course[]
+  createdAt       DateTime    @default(now())
+  quizResults     QuizResult[]
+  courses         Course[]    @relation("UserCourses")
 }
 
 model Session {
@@ -43,7 +35,7 @@ model Course {
   title       String   @unique
   description String?  @db.VarChar(3000)
   createdAt   DateTime @default(now())
-  admin       Admin    @relation(fields: [adminId], references: [id])
+  admin       User     @relation("UserCourses", fields: [adminId], references: [id])
   adminId     String
   quizzes     Quiz[]
 }
@@ -77,4 +69,9 @@ model Question {
   answer     String
   quiz       Quiz     @relation(fields: [quizId], references: [id])
   quizId     Int
+}
+
+enum Role {
+  USER
+  ADMIN
 }

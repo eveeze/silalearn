@@ -95,17 +95,17 @@ export default function LoginPage() {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <div class="grid grid-cols-2 items-start mt-2 ">
-                    <div class="flex items-center ">
+                  <div className="grid grid-cols-2 items-start mt-2 ">
+                    <div className="flex items-center ">
                       <Input
                         type="checkbox"
                         id="remember"
                         name="remember"
                         className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 "
                       />
-                      <div class="px-2 mt-[10px] text-sm">
+                      <div className="px-2 mt-[10px] text-sm">
                         <label
-                          for="remember"
+                          htmlFor="remember"
                           className="text-white font-semibold mt-4"
                         >
                           Remember me
