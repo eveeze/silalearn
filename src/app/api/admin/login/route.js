@@ -1,3 +1,4 @@
+// api/admin/login/route.js
 import prisma from "@/lib/prisma";
 import { verifyPassword } from "@/utils/auth";
 import jwt from "jsonwebtoken";

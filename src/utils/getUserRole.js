@@ -1,3 +1,4 @@
+// getUserRole.js
 import jwtDecode from "jwt-decode";
 
 export function getUserRole(token) {

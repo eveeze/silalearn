@@ -22,7 +22,7 @@ export default function Card({ course }) {
         </p>
         <Link
           className="text-black text-lg hover:underline mt-4 block"
-          href={"learn/course/" + course.slug}
+          href={`/courses/${course.slug}`}
         >
           Belajar Sekarang
         </Link>

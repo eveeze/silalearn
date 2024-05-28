@@ -1,3 +1,4 @@
+// api/admin/session/route.js
 import prisma from "@/lib/prisma";
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";

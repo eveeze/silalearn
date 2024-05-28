@@ -22,7 +22,7 @@ model User {
 model Session {
   id        Int      @id @default(autoincrement())
   token     String   @unique
-  userId    String   
+  userId    String
   expires   DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -34,10 +34,10 @@ model Course {
   slug        String   @unique
   title       String   @unique
   description String?  @db.VarChar(3000)
+  videoUrl    String?  // Menyimpan URL video dari YouTube
   createdAt   DateTime @default(now())
   admin       User     @relation("UserCourses", fields: [adminId], references: [id])
   adminId     String
-  quizzes     Quiz[]
 }
 
 model Quiz {
@@ -46,8 +46,6 @@ model Quiz {
   description String?
   createdAt   DateTime @default(now())
   questions   Question[]
-  course      Course   @relation(fields: [courseId], references: [id])
-  courseId    Int
   quizResults QuizResult[]
 }
 
@@ -67,6 +65,7 @@ model Question {
   content    String
   options    Json
   answer     String
+  type       QuestionType
   quiz       Quiz     @relation(fields: [quizId], references: [id])
   quizId     Int
 }
@@ -74,4 +73,9 @@ model Question {
 enum Role {
   USER
   ADMIN
+}
+
+enum QuestionType {
+  REGULAR
+  HOTS
 }

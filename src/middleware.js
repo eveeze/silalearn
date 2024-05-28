@@ -30,7 +30,6 @@ export async function middleware(req) {
     return NextResponse.next();
   }
 }
-
 export async function authenticateToken(req, tokenName = "authToken") {
   const token = req.cookies.get(tokenName)?.value;
   if (!token) return null;
