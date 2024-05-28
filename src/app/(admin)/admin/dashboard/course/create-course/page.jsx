@@ -10,22 +10,15 @@ export default function CreateCourse() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
-  const cookies = useCookies();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "/api/admin/course",
-        {
-          title,
-          description,
-          videoUrl,
-        },
-        {
-          headers: { Authorization: "Bearer " + cookies.get("adminAuthToken") },
-        }
-      );
+      await axios.post("/api/admin/course", {
+        title,
+        description,
+        videoUrl,
+      });
       router.push("/admin/dashboard/course");
     } catch (error) {
       console.error("Error creating course:", error);
