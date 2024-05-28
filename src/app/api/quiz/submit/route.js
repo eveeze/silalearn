@@ -1,4 +1,4 @@
-// app/api/quiz/submit.js
+// app/api/quiz/submit/route.js
 import prisma from "@/lib/prisma";
 import { authenticateToken } from "@/middleware";
 import { NextResponse } from "next/server";

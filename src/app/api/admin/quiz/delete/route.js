@@ -1,3 +1,4 @@
+// app/api/admin/quiz/delete/route.js
 import prisma from "@/lib/prisma";
 import { authenticateToken } from "@/middleware";
 import { isAdmin } from "@/utils/isAdmin";

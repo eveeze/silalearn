@@ -64,7 +64,6 @@ model Question {
   id         Int      @id @unique @default(autoincrement())
   content    String
   options    Option[]
-  answer     String
   type       QuestionType
   quiz       Quiz     @relation(fields: [quizId], references: [id])
   quizId     Int
@@ -72,7 +71,7 @@ model Question {
 model Option {
   id         Int      @id @unique @default(autoincrement())
   content    String
-  isCorrect  Boolean
+  isCorrect  Boolean @default(false)
   question   Question @relation(fields: [questionId], references: [id])
   questionId Int
 }

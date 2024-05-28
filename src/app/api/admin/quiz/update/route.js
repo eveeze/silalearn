@@ -1,3 +1,5 @@
+// app/api/admin/quiz/update/route.js
+
 import prisma from "@/lib/prisma";
 import { authenticateToken } from "@/middleware";
 import { isAdmin } from "@/utils/isAdmin";
@@ -17,18 +19,21 @@ export async function POST(req) {
   }
 
   try {
-    const quizExists = await prisma.quiz.findUnique({ where: { id } });
+    const quizExists = await prisma.quiz.findUnique({
+      where: { id: parseInt(id) },
+    });
     if (!quizExists) {
       return NextResponse.json({ error: "Quiz not found" }, { status: 404 });
     }
 
+    // Updating quiz with deletion of old questions and addition of new ones
     const quiz = await prisma.quiz.update({
-      where: { id },
+      where: { id: parseInt(id) },
       data: {
         title,
         description,
         questions: {
-          deleteMany: {}, // Delete existing questions
+          deleteMany: {}, // Deletes all related questions first
           create: questions.map((q) => ({
             content: q.content,
             type: q.type,
@@ -45,6 +50,7 @@ export async function POST(req) {
 
     return NextResponse.json(quiz, { status: 200 });
   } catch (error) {
+    console.error("Error updating quiz:", error);
     return NextResponse.json(
       { message: "Error updating quiz", error: error.message },
       { status: 500 }

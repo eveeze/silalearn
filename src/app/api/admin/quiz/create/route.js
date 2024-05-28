@@ -1,4 +1,4 @@
-// app/admin/quiz/create/route.js
+// app/api/admin/quiz/create/route.js
 
 import prisma from "@/lib/prisma";
 import { authenticateToken } from "@/middleware";
@@ -19,6 +19,25 @@ export async function POST(req) {
   }
 
   try {
+    for (const question of questions) {
+      if (question.options.length > 5) {
+        return NextResponse.json(
+          { error: "Each question can have a maximum of 5 options" },
+          { status: 400 }
+        );
+      }
+
+      const correctOptions = question.options.filter(
+        (option) => option.isCorrect
+      );
+      if (correctOptions.length > 1) {
+        return NextResponse.json(
+          { error: "Only one option can be marked as correct per question" },
+          { status: 400 }
+        );
+      }
+    }
+
     const quiz = await prisma.quiz.create({
       data: {
         title,
