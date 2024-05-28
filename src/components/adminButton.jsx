@@ -1,3 +1,4 @@
+// components/adminButton.jsx
 import React from "react";
 
 export default function AdminButton({ onClick, children, className }) {

@@ -1,4 +1,5 @@
-// lib/getAdminId.js
+// utils/getAdmin.js
+
 import prisma from "@/lib/prisma";
 
 export async function getAdminId() {
