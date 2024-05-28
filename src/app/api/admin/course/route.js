@@ -1,3 +1,4 @@
+// api/admin/course/route.js
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { authenticateToken } from "@/middleware";

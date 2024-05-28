@@ -1,6 +1,9 @@
+// components/card.jsx
+// components/card.jsx
 import Image from "next/image";
 import Link from "next/link";
 import { josefin, spartan } from "@/app/layout";
+
 export default function Card({ course }) {
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-auto border-2 border-black transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
@@ -22,7 +25,7 @@ export default function Card({ course }) {
         </p>
         <Link
           className="text-black text-lg hover:underline mt-4 block"
-          href={`/courses/${course.slug}`}
+          href={`/learn/${course.slug}`}
         >
           Belajar Sekarang
         </Link>

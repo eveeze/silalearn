@@ -2,6 +2,7 @@
 import Input from "@/components/input";
 import HeroTopIcon from "@/icons/hero_top";
 import Card from "@/components/card";
+import VideoPlayer from "@/components/VideoPlayer";
 
 const Courses = [
   {
@@ -47,6 +48,12 @@ export default function Test() {
             <Card course={Courses} key={i} />
           </div>
         ))}
+      </div>
+
+      <div className="p-12 ">
+        <VideoPlayer
+          url={"https://www.youtube.com/embed/7rxuCXsir84?si=FGJUhRAwuog7HnYZ"}
+        />
       </div>
     </div>
   );

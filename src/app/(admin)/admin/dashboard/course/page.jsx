@@ -33,10 +33,10 @@ export default function CourseDashboard() {
     router.push(`/admin/dashboard/course/edit-course/${slug}`);
   };
 
-  const deleteCourse = async (id) => {
+  const deleteCourse = async (slug) => {
     try {
-      await axios.delete(`/api/admin/course/${id}`);
-      setCourses(courses.filter((course) => course.id !== id));
+      await axios.delete(`/api/admin/course/${slug}`);
+      setCourses(courses.filter((course) => course.slug !== slug));
     } catch (error) {
       console.error("Error deleting course:", error);
     }
@@ -58,7 +58,7 @@ export default function CourseDashboard() {
               course={course}
               // Menggunakan slug sebagai parameter untuk onEdit
               onEdit={() => editCourse(course.slug)}
-              onDelete={() => deleteCourse(course.id)}
+              onDelete={() => deleteCourse(course.slug)}
             />
           </div>
         ))}

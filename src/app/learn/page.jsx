@@ -1,5 +1,3 @@
-// app/learn/page.jsx
-
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,7 +13,7 @@ export default function CoursesPage() {
   useEffect(() => {
     async function fetchCourses() {
       try {
-        const response = await axios.get("/api/courses"); // Mengubah endpoint ke /api/courses
+        const response = await axios.get("/api/courses");
         setCourses(response.data);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -39,16 +37,12 @@ export default function CoursesPage() {
           <Search placeholder="Cari Video " id={"search"} name={"search"} />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-        {courses.map(
-          (
-            course // Menggunakan data dari state courses
-          ) => (
-            <div className="overflow-hidden height-100%" key={course.id}>
-              <Card course={course} />
-            </div>
-          )
-        )}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {courses.map((course) => (
+          <div className="overflow-hidden height-100%" key={course.id}>
+            <Card course={course} />
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 // app/admin/dashboard/course/edit-course/[slug]/page.jsx
-
+"use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter, useParams } from "next/navigation";
