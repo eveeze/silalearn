@@ -8,7 +8,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const response = await axios.get("/api/admin/user"); // Sesuaikan endpoint API
+        const response = await axios.get("/api/admin/users"); // Sesuaikan endpoint API
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
