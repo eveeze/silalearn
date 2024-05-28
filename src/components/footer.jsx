@@ -18,7 +18,7 @@ export default function Footer() {
                 <span
                   className={`self-center text-2xl font-semibold whitespace-nowrap ml-4 text-white ${righteous.className} `}
                 >
-                  SilaLearn
+                  Silalearn
                 </span>
               </Link>
             </div>

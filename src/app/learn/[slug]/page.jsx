@@ -38,7 +38,7 @@ export default function CourseDetailPage() {
         ) : (
           <p>Video not available</p>
         )}
-        <h1 className={`text-3xl font-bold mb-4 ${spartan.className}`}>
+        <h1 className={`text-3xl font-bold mb-4 pt-3 ${spartan.className}`}>
           {course.title}
         </h1>
         <p className={`text-gray-700 mb-8 ${josefin.className}`}>
