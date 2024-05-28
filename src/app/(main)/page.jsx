@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import { josefin } from "../layout";
 import { spartan } from "../layout";
+import Link from "next/link";
 export default function Home() {
   const [activeQuestion, setActiveQuestion] = useState(null);
 
@@ -25,7 +26,7 @@ export default function Home() {
         "Silalearn menawarkan akses gratis . Pengguna dapat menikmati berbagai materi pembelajaran dan modul interaktif tanpa biaya.",
     },
     {
-      question: "Apa jenis materi pembelajaran yang tersedia di SilaLearn?",
+      question: "Apa jenis materi pembelajaran yang tersedia di Silalearn?",
       answer:
         "Rangkuman tentang berbagai jenis materi pembelajaran yang dapat diakses di SilaLearn, mulai dari  video, kuis. Juga, bagaimana materi-materi tersebut disusun dan dikelompokkan untuk memudahkan pengguna dalam memilih topik yang diminati.",
     },
@@ -35,11 +36,11 @@ export default function Home() {
     <>
       <div className="min-h-dvh w-full mx-auto max-w-screen-xl">
         <div className="grid grid-cols-2 mt-12 p-8 gap-8 bg-merah-100">
-          <div className="mt-8 space-y-4 text-left">
+          <div className="mt-8 space-y-4 text-right">
             <h1
               className={`text-[64px] font-bold text-black mt-32 ${spartan.className}`}
             >
-              Perluas Wawasan Dengan SILALEARN
+              Perluas Wawasan Dengan Silalearn
             </h1>
             <h2 className={`${josefin.className} text-2xl font-medium`}>
               Halo teman-teman! Di SilaLearn, kalian bisa belajar Pancasila
@@ -47,14 +48,17 @@ export default function Home() {
               menarik di sini. Ayo mulai belajar dan jadi pahlawan Pancasila!
             </h2>
             <div className="flex items-center justify-center mt-16 gap-8">
-              <button className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500">
+              <Link 
+                href={"/learn"}
+                className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500 font-medium rounded-lg">
+                
                 Mulai Belajar
-              </button>
+              </Link>
             </div>
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src={"/image/main.png"}
+              src={"/image/hero_final.png"}
               width={500}
               height={300}
               alt="hero image"

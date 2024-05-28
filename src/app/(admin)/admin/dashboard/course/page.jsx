@@ -53,7 +53,7 @@ export default function CourseDashboard() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {courses.map((course) => (
-          <div className="p-4 border rounded-lg shadow-md" key={course.id}>
+          <div className="" key={course.id}>
             <AdminCard
               course={course}
               // Menggunakan slug sebagai parameter untuk onEdit
