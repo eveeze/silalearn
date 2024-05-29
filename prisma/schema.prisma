@@ -63,13 +63,18 @@ model QuizResult {
 model Question {
   id         Int      @id @unique @default(autoincrement())
   content    String
-  options    Json
-  answer     String
+  options    Option[]
   type       QuestionType
   quiz       Quiz     @relation(fields: [quizId], references: [id])
   quizId     Int
 }
-
+model Option {
+  id         Int      @id @unique @default(autoincrement())
+  content    String
+  isCorrect  Boolean @default(false)
+  question   Question @relation(fields: [questionId], references: [id])
+  questionId Int
+}
 enum Role {
   USER
   ADMIN

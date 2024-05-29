@@ -68,7 +68,10 @@ export default function NavbarAdmin() {
           >
             Course
           </Link>
-          <Link href="/quiz" className="text-black text-xl font-normal">
+          <Link
+            href="/admin/dashboard/quiz"
+            className="text-black text-xl font-normal"
+          >
             Quiz
           </Link>
         </div>
