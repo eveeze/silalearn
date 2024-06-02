@@ -51,3 +51,10 @@ export function isAdmin(req, res, next) {
   }
   next();
 }
+
+export function isLoggedin(req, res, next) {
+  if (req.user.role !== "USER") {
+    return res.status(403).json({ error: "Kamu bukan User" });
+  }
+  next();
+}

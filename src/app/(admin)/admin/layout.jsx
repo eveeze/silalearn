@@ -6,11 +6,8 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`text-white ${josefin.className} bg-merah-100 `}>
-      <body>
-        {children}
-        <Footer />
-      </body>
+    <html lang="en" className={` ${josefin.className} bg-merah-100`}>
+      <body>{children}</body>
     </html>
   );
 }

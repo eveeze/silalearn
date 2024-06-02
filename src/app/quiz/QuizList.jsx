@@ -1,20 +1,12 @@
 // app/quiz/QuizList.jsx
 import React from "react";
+import QuizCard from "./QuizCard";
 
 const QuizList = ({ quizzes, onSelect }) => {
   return (
-    <div className="mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
       {quizzes.map((quiz) => (
-        <div key={quiz.id} className="p-4 mb-4 bg-white shadow-md rounded">
-          <h2 className="text-lg font-bold">{quiz.title}</h2>
-          <p>{quiz.description}</p>
-          <button
-            onClick={() => onSelect(quiz.id)}
-            className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
-          >
-            Start Quiz
-          </button>
-        </div>
+        <QuizCard key={quiz.id} quiz={quiz} onSelect={onSelect} />
       ))}
     </div>
   );

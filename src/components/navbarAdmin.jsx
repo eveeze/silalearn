@@ -76,11 +76,6 @@ export default function NavbarAdmin() {
           </Link>
         </div>
         <div className="flex items-center space-x-5">
-          {adminName && (
-            <span className="text-black text-xl font-normal">
-              Halo, {adminName}
-            </span>
-          )}
           <button
             onClick={handleLogout}
             className="px-4 py-2 bg-red-500 text-white text-xs font-black rounded"

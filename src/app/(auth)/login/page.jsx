@@ -30,7 +30,8 @@ export default function LoginPage() {
         setErrorMessage(data.message || "Login failed");
         return;
       }
-
+      const data = await response.json();
+      localStorage.setItem("authToken", data.token);
       router.push("/");
     } catch (error) {
       console.error("Login failed:", error);
