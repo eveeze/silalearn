@@ -1,10 +1,45 @@
 // app/quiz/QuizDetail.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import QuestionCard from "./QuestionCard";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { formatTime } from "@/utils/formatTime";
 
 const QuizDetail = ({ quiz, onComplete }) => {
   const [answers, setAnswers] = useState({});
-  const [score, setScore] = useState(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [time, setTime] = useState(0);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    setShuffledQuestions(shuffleArray(quiz.questions));
+  }, [quiz.questions]);
+
+  useEffect(() => {
+    startTimer();
+    return () => stopTimer(); // Clean up the timer on component unmount
+  }, []);
+
+  const startTimer = () => {
+    if (!timerRef.current) {
+      // Check if the timer is already running
+      timerRef.current = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    }
+  };
+
+  const stopTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
 
   const handleOptionChange = (questionId, optionIndex) => {
     setAnswers({
@@ -13,49 +48,77 @@ const QuizDetail = ({ quiz, onComplete }) => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const result = await axios.post("/api/quiz/submit", {
-      quizId: quiz.id,
-      answers,
-    });
-    setScore(result.data.score);
-    onComplete();
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < shuffledQuestions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      handleSubmit();
+    }
   };
 
-  if (score !== null) {
-    return (
-      <div className="p-4 bg-white shadow-md rounded">Your score: {score}</div>
-    );
-  }
+  const handleSubmit = async () => {
+    stopTimer(); // Stop the timer when submitting the quiz
+
+    const token = localStorage.getItem("authToken");
+
+    try {
+      const result = await axios.post(
+        "/api/quiz/submit",
+        {
+          quizId: quiz.id,
+          answers: Object.entries(answers).map(([questionId, optionIndex]) => ({
+            questionId: parseInt(questionId),
+            optionId: quiz.questions.find((q) => q.id === parseInt(questionId))
+              .options[optionIndex].id,
+            startedAt: new Date(),
+          })),
+          duration: time, // Send the total duration of the quiz
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      onComplete({ ...result.data, quizId: quiz.id });
+    } catch (error) {
+      console.error("Error submitting quiz:", error);
+    }
+  };
+
+  const currentQuestion = shuffledQuestions[currentQuestionIndex];
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-white shadow-md rounded">
-      {quiz.questions.map((question) => (
-        <div key={question.id} className="mb-4">
-          <h3 className="text-lg font-bold">{question.content}</h3>
-          {question.options.map((option, index) => (
-            <div key={index} className="flex items-center mt-2">
-              <input
-                type="radio"
-                name={`question-${question.id}`}
-                value={index}
-                checked={answers[question.id] === index}
-                onChange={() => handleOptionChange(question.id, index)}
-                className="mr-2"
-              />
-              <span>{option.content}</span>
-            </div>
-          ))}
-        </div>
-      ))}
+    <div className="p-4 bg-white shadow-md rounded">
+      <div className="mb-4">
+        <span className="font-bold">Time: {formatTime(time)}</span>
+      </div>
+      {currentQuestion ? (
+        <TransitionGroup>
+          <CSSTransition
+            key={currentQuestion.id}
+            timeout={300}
+            classNames="question"
+          >
+            <QuestionCard
+              question={currentQuestion}
+              onOptionChange={handleOptionChange}
+              selectedOption={answers[currentQuestion.id]}
+            />
+          </CSSTransition>
+        </TransitionGroup>
+      ) : (
+        <p>Loading...</p>
+      )}
       <button
-        type="submit"
+        onClick={handleNextQuestion}
         className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
       >
-        Submit
+        {currentQuestionIndex < shuffledQuestions.length - 1
+          ? "Next Question"
+          : "Submit"}
       </button>
-    </form>
+    </div>
   );
 };
 

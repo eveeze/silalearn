@@ -7,7 +7,7 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`text-black ${josefin.className} `}>
+    <html lang="en" className={`text-black ${josefin.className} bg-merah-100`}>
       <body>
         <NavbarAdmin />
         {children}

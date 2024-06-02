@@ -10,7 +10,24 @@ export async function POST(req) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { quizId, answers } = await req.json();
+  let quizId, answers, duration;
+  try {
+    const body = await req.json();
+    quizId = body.quizId;
+    answers = body.answers;
+    duration = body.duration;
+
+    if (
+      !quizId ||
+      !Array.isArray(answers) ||
+      answers.length === 0 ||
+      !duration
+    ) {
+      throw new Error("Invalid input");
+    }
+  } catch (error) {
+    return NextResponse.json({ error: "Invalid input data" }, { status: 400 });
+  }
 
   try {
     const quiz = await prisma.quiz.findUnique({
@@ -29,6 +46,8 @@ export async function POST(req) {
     }
 
     let score = 0;
+    let startedAt;
+
     answers.forEach((answer) => {
       const question = quiz.questions.find((q) => q.id === answer.questionId);
       if (question) {
@@ -37,13 +56,16 @@ export async function POST(req) {
           score += question.type === "HOTS" ? 1000 : 400;
         }
       }
+      if (!startedAt || new Date(answer.startedAt) < new Date(startedAt)) {
+        startedAt = answer.startedAt;
+      }
     });
 
     const quizResult = await prisma.quizResult.create({
       data: {
         score,
-        duration: answers.reduce((total, answer) => total + answer.duration, 0),
-        startedAt: new Date(answers[0].startedAt),
+        duration,
+        startedAt: new Date(startedAt),
         userId: user.id,
         quizId: quiz.id,
       },

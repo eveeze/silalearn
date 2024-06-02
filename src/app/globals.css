@@ -5,3 +5,33 @@
 .btn {
   @apply inline-block px-5 py-2 lg:px-12 lg:py-3 border-[3px] border-transparent rounded-3xl bg-merah-300 text-white;
 }
+
+.question-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.question-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.question-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.question-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert {
+  @apply bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative;
+}
+
+.alert-close {
+  @apply absolute top-0 bottom-0 right-0 px-4 py-3;
+}

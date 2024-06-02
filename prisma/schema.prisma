@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id              String      @id @unique @default(uuid())
+  id              String      @id @default(uuid())
   fullName        String
   hashedPassword  String
   email           String      @unique
@@ -30,7 +30,7 @@ model Session {
 }
 
 model Course {
-  id          Int      @id @unique @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   slug        String   @unique
   title       String   @unique
   description String?  @db.VarChar(3000)
@@ -41,7 +41,7 @@ model Course {
 }
 
 model Quiz {
-  id          Int      @id @unique @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String   @unique
   description String?
   createdAt   DateTime @default(now())
@@ -50,31 +50,33 @@ model Quiz {
 }
 
 model QuizResult {
-  id         Int      @id @unique @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   score      Float    // Menyimpan nilai siswa
   duration   Int      // Menyimpan waktu yang diperlukan oleh siswa untuk menyelesaikan kuis (dalam detik)
   startedAt  DateTime // Waktu mulai mengerjakan kuis
-  user       User     @relation(fields: [userId], references: [id]) // Siswa yang mengerjakan kuis
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Siswa yang mengerjakan kuis
   userId     String
-  quiz       Quiz     @relation(fields: [quizId], references: [id]) // Kuis yang sedang dikerjakan
+  quiz       Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade) // Kuis yang sedang dikerjakan
   quizId     Int
 }
 
 model Question {
-  id         Int      @id @unique @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   content    String
   options    Option[]
   type       QuestionType
-  quiz       Quiz     @relation(fields: [quizId], references: [id])
+  quiz       Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
   quizId     Int
 }
+
 model Option {
-  id         Int      @id @unique @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   content    String
-  isCorrect  Boolean @default(false)
-  question   Question @relation(fields: [questionId], references: [id])
+  isCorrect  Boolean  @default(false)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
   questionId Int
 }
+
 enum Role {
   USER
   ADMIN

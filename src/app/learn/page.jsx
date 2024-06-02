@@ -6,7 +6,7 @@ import Card from "@/components/card";
 import { spartan } from "../layout";
 import { josefin } from "../layout";
 import { righteous } from "../layout";
-
+import { Player } from "@lottiefiles/react-lottie-player";
 export default function CoursesPage() {
   const [courses, setCourses] = useState([]);
 
@@ -37,13 +37,27 @@ export default function CoursesPage() {
           <Search placeholder="Cari Video " id={"search"} name={"search"} />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {courses.map((course) => (
-          <div className="overflow-hidden height-100%" key={course.id}>
-            <Card course={course} />
-          </div>
-        ))}
-      </div>
+      {courses.length === 0 ? (
+        <div className="flex flex-col justify-center items-center">
+          <Player
+            src={
+              "https://lottie.host/366c04e0-7efe-44fc-9d0e-8a5bf5d5a984/hfFNKGw63D.json"
+            }
+            className="player w-[400px] h-[400px] "
+            autoplay
+            loop
+          />
+          <h1 className="text-4xl font-bold">Video Pembelajaran Kosong</h1>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {courses.map((course) => (
+            <div className="overflow-hidden height-100%" key={course.id}>
+              <Card course={course} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

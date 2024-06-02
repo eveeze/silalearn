@@ -1,5 +1,3 @@
-// admin/dashboard/quiz/create-quiz/page.jsx
-
 "use client";
 import { useState } from "react";
 import AdminButton from "@/components/adminButton";
@@ -68,51 +66,80 @@ export default function CreateQuizPage() {
     <div className="min-h-dvh w-full mx-auto p-8 space-y-8 max-w-screen-xl">
       <h1 className="text-5xl mt-4 font-bold">Create Quiz</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Quiz Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded"
-          required
-        />
-        <textarea
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded"
-          required
-        ></textarea>
+        <div>
+          <label className="text-2xl font-semibold" htmlFor="Quiz Title">
+            Nama Quiz
+          </label>
+          <input
+            type="text"
+            placeholder="Masukan Nama Quiz"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="text-2xl font-semibold" htmlFor="Description">
+            Deskripsi
+          </label>
+          <textarea
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          ></textarea>
+        </div>
+
         {questions.map((question, qIndex) => (
           <div
             key={qIndex}
-            className="border border-gray-300 p-4 rounded space-y-2"
+            className="border-2 border-merah-300 p-4 rounded space-y-2"
           >
-            <input
-              type="text"
-              placeholder="Question Content"
-              value={question.content}
-              onChange={(e) =>
-                handleQuestionChange(qIndex, "content", e.target.value)
-              }
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Question Type"
-              value={question.type}
-              onChange={(e) =>
-                handleQuestionChange(qIndex, "type", e.target.value)
-              }
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
+            <div>
+              <label
+                className="text-xl font-semibold"
+                htmlFor="Question Content"
+              >
+                Pertanyaan
+              </label>
+              <input
+                type="text"
+                placeholder="Masukan Pertanyaan"
+                value={question.content}
+                onChange={(e) =>
+                  handleQuestionChange(qIndex, "content", e.target.value)
+                }
+                className="w-full p-2 border border-merah-300 rounded"
+                required
+              />
+            </div>
+            <div>
+              <label
+                className="text-xl font-semibold"
+                htmlFor="Tipe Pertanyaan"
+              >
+                Tipe Pertanyaan
+              </label>
+              <input
+                type="text"
+                placeholder="Tipe Pertanyaan (HOTS/REGULAR)"
+                value={question.type}
+                onChange={(e) =>
+                  handleQuestionChange(qIndex, "type", e.target.value)
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+                required
+              />
+            </div>
+
             {question.options.map((option, oIndex) => (
               <div key={oIndex} className="flex space-x-2">
                 <input
                   type="text"
-                  placeholder="Option Content"
+                  placeholder="Masukan Opsi Jawaban "
                   value={option.content}
                   onChange={(e) =>
                     handleOptionChange(
