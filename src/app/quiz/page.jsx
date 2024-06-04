@@ -31,7 +31,7 @@ const QuizzesPage = () => {
   };
 
   return (
-    <div className="w-full min-h-dvh mx-auto space-y-8 bg-merah-100 p-8 max-w-screen-xl">
+    <div className="w-full min-h-dvh mx-auto space-y-8 bg-merah-100 p-8 max-w-screen-xl mt-16">
       {quizzes.length === 0 ? (
         <div className="flex flex-col justify-center items-center">
           <Player

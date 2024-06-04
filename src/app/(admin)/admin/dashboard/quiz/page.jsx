@@ -1,11 +1,11 @@
 "use client";
+"use client";
 import { useState, useEffect } from "react";
 import AdminButton from "@/components/adminButton";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import VideoPlayer from "@/components/VideoPlayer";
 import { Player } from "@lottiefiles/react-lottie-player";
-
+import AdminQuizCard from "@/components/adminQuizCard";
 export default function QuizPage() {
   const [quizzes, setQuizzes] = useState([]);
   const router = useRouter();
@@ -29,6 +29,10 @@ export default function QuizPage() {
       body: JSON.stringify({ id }),
     });
     fetchQuizzes();
+  };
+
+  const handleEdit = (id) => {
+    router.push(`/admin/dashboard/quiz/edit-quiz/${id}`);
   };
 
   return (
@@ -59,21 +63,12 @@ export default function QuizPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {quizzes.map((quiz) => (
-            <div
+            <AdminQuizCard
               key={quiz.id}
-              className="mb-4 border border-black rounded-xl p-8 overflow-hidden"
-            >
-              <h3 className="text-xl font-bold">{quiz.title}</h3>
-              <p>{quiz.description}</p>
-              <div className="flex space-x-4">
-                <AdminButton onClick={() => handleDelete(quiz.id)}>
-                  Hapus
-                </AdminButton>
-                <Link href={`/admin/dashboard/quiz/edit-quiz/${quiz.id}`}>
-                  <AdminButton>Edit</AdminButton>
-                </Link>
-              </div>
-            </div>
+              quiz={quiz}
+              onEdit={() => handleEdit(quiz.id)}
+              onDelete={() => handleDelete(quiz.id)}
+            />
           ))}
         </div>
       )}

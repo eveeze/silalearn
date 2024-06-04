@@ -72,7 +72,7 @@ const QuizDetail = ({ quiz, onComplete }) => {
               .options[optionIndex].id,
             startedAt: new Date(),
           })),
-          duration: time, // Send the total duration of the quiz
+          duration: time,
         },
         {
           headers: {
