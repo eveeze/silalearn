@@ -53,7 +53,7 @@ export default function EditCourse() {
   };
 
   return (
-    <div className="min-h-screen max-w-screen-md mx-auto p-8">
+    <div className="text-white max-w-screen-md mx-auto mt-8 p-8 border-2 bg-merah-300 border-merah-700 rounded-xl mb-16">
       <h1 className="text-4xl font-bold mb-8">Edit Course</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -65,7 +65,7 @@ export default function EditCourse() {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
+            className="mt-1 p-2 w-full border rounded text-black"
           />
         </div>
         <div className="mb-4">
@@ -76,7 +76,7 @@ export default function EditCourse() {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
+            className="mt-1 p-2 w-full border rounded text-black"
           ></textarea>
         </div>
         <div className="mb-4">
@@ -88,12 +88,12 @@ export default function EditCourse() {
             id="videoUrl"
             value={videoUrl}
             onChange={(e) => setVideoUrl(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
+            className="mt-1 p-2 w-full border rounded text-black"
           />
         </div>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="text-black ${josefin.className} w-full border-2 border-merah-800 bg-merah-100 focus:ring-2 focus:outline-none focus:ring-merah-700  shadow-lg shadow-red-500/50 dark:shadow-lg hover:bg-merah-200 hover:border-2 hover:border-merah-700 font-medium rounded-xl text-sm px-8 py-4 text-center me-2 mb-2 mt-4"
         >
           Update Course
         </button>

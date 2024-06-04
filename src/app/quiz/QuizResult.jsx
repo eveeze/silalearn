@@ -17,8 +17,8 @@ const QuizResults = ({ result }) => {
           style={{ height: "400px", width: "400px" }}
         />
         <p className="text-xl font-bold">Score: {score}</p>
-        <p className="text-xl font-bold">Total Time:{formatTime(duration)}</p>
-        <Link href={"/"} className="btn">
+        <p className="text-xl font-bold">Total Time: {formatTime(duration)}</p>
+        <Link href={"/"} className="btn mt-2">
           Kembali ke Beranda
         </Link>
       </div>
