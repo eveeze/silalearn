@@ -106,22 +106,25 @@ export default function NavbarAdmin() {
       </div>
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white p-4 space-y-2 shadow-md">
-          <Link href="/" className="block text-black text-xl font-normal">
+        <div className="md:hidden bg-white p-4 space-y-2 shadow-md mt-2">
+          <Link
+            href="/admin/dashboard"
+            className="block text-black text-xl font-normal"
+          >
             Home
           </Link>
-          <Link href="/course" className="block text-black text-xl font-normal">
+          <Link
+            href="/admin/dashboard/course"
+            className="block text-black text-xl font-normal"
+          >
             Course
           </Link>
-          <Link href="/quiz" className="block text-black text-xl font-normal">
+          <Link
+            href="/admin/dashboard/quiz"
+            className="block text-black text-xl font-normal"
+          >
             Quiz
           </Link>
-          <button
-            onClick={handleLogout}
-            className="block w-full text-left px-4 py-2 bg-red-500 text-white text-xs font-black rounded"
-          >
-            Logout
-          </button>
         </div>
       )}
     </nav>

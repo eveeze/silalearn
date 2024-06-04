@@ -40,7 +40,7 @@ export default function LoginAdmin() {
       onSubmit={handleSubmit}
       className="max-w-screen-xl mx-auto space-y-8 p-8 pb-16"
     >
-      <div className="w-[679px] h-[550px] rounded-2xl flex flex-col mx-auto bg-merah-300 border-2 border-black p-8 mt-8">
+      <div className="md:w-[679px] md:h-[550px] max-w-screen-xl rounded-2xl flex flex-col mx-auto bg-merah-300 border-2 border-black p-8 mt-8">
         <div className="flex gap-2">
           <Image
             src={"/logo/logo_silalearn.png"}

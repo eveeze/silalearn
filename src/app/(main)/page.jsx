@@ -35,10 +35,10 @@ export default function Home() {
   return (
     <>
       <div className="min-h-dvh w-full mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-2 mt-12 p-8 gap-8 bg-merah-100">
-          <div className="mt-8 space-y-4 text-right">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-12 p-8 gap-8 bg-merah-100">
+          <div className="mt-8 space-y-4 text-center md:text-right">
             <h1
-              className={`text-[64px] font-bold text-black mt-32 ${spartan.className}`}
+              className={`text-4xl md:text-[64px] font-bold text-black mt-32 ${spartan.className}`}
             >
               Perluas Wawasan Dengan Silalearn
             </h1>
@@ -48,10 +48,10 @@ export default function Home() {
               menarik di sini. Ayo mulai belajar dan jadi pahlawan Pancasila!
             </h2>
             <div className="flex items-center justify-center mt-16 gap-8">
-              <Link 
+              <Link
                 href={"/learn"}
-                className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500 font-medium rounded-lg">
-                
+                className="btn hover:bg-merah-500 focus:ring focus:outline-none focus:ring-red-500 font-medium rounded-lg"
+              >
                 Mulai Belajar
               </Link>
             </div>
