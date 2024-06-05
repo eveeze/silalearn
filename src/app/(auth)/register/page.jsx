@@ -43,7 +43,7 @@ export default function RegisterPage() {
   return (
     <div className="bg-merah-100">
       <form className={`${josefin.className}`} onSubmit={handleRegister}>
-        <div className="grid grid-cols-1 md:grid-cols-2 p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 p-4 md:p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center">
           <div className="p-8 space-y-4 border-4 border-merah-400 rounded-2xl bg-merah-300">
             <div className="p-4 space-y-4">
               <div className="flex gap-8">
@@ -105,7 +105,11 @@ export default function RegisterPage() {
                     Sign In
                   </Link>
                 </p>
-                {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                {errorMessage && (
+                  <p className="text-merah-200 font-semibold text-left text-xl">
+                    {errorMessage}
+                  </p>
+                )}
               </div>
             </div>
           </div>

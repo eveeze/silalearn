@@ -26,7 +26,7 @@ export default function CreateCourse() {
   };
 
   return (
-    <div className="text-white max-w-screen-md mx-auto mt-8 p-8 border-2 bg-merah-300 border-merah-700 rounded-xl mb-16 ">
+    <div className="text-white max-w-screen-sm mx-auto mt-8 p-8 md:p-16 border-2 bg-merah-300 border-merah-700 rounded-xl mb-16 ">
       <h1 className="text-4xl font-bold mb-8">Create Course</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -51,7 +51,7 @@ export default function CreateCourse() {
             value={description}
             placeholder="Masukan Deskripsi Video Pembelajaran"
             onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 p-2 w-full border rounded "
+            className="mt-1 p-2 w-full border rounded h-[150px] "
           ></textarea>
         </div>
         <div className="mb-4">

@@ -43,7 +43,7 @@ export default function LoginPage() {
     <>
       <form className={`${josefin.className}`} onSubmit={handleLogin}>
         <div className="bg-merah-100">
-          <div className="grid grid-cols-1 md:grid-cols-2 p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 p-4 md:p-16 space-y-4 w-full max-w-screen-2xl min-h-dvh justify-center">
             <div className="flex items-center justify-center">
               <div className="hidden md:block">
                 <Image
@@ -69,8 +69,10 @@ export default function LoginPage() {
                   </h1>
                 </div>
                 <div>
-                  <p className="text-xl font-bold text-white">Selamat Datang</p>
-                  <p className="text-md text-white text-regular mt-2">
+                  <p className=" text-lg md:text-xl font-bold text-white">
+                    Selamat Datang
+                  </p>
+                  <p className=" text-sm md:text-md text-white text-regular mt-2">
                     Permudah Belajar Pancasila dengan SILALEARN
                   </p>
                   <div className="mt-2">
@@ -124,7 +126,9 @@ export default function LoginPage() {
                     </Link>
                   </p>
                   {errorMessage && (
-                    <p className="text-red-500">{errorMessage}</p>
+                    <p className="text-merah-200 font-semibold text-left text-xl">
+                      {errorMessage}
+                    </p>
                   )}
                 </div>
               </div>

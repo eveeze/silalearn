@@ -32,7 +32,7 @@ export default function CourseDetailPage() {
 
   return (
     <div className="w-full min-h-dvh mx-auto space-y-8 p-8 max-w-screen-xl">
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-auto border-2 border-black p-8 mt-16">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-auto border-2 border-black p-4 md:p-8 mt-16">
         {course.videoUrl ? (
           <VideoPlayer url={course.videoUrl} />
         ) : (

@@ -64,7 +64,6 @@ export default function Navbar() {
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-5">
           {user ? (
             <div className="flex items-center space-x-3">
-              <span className="text-black"> {user.fullName}</span>
               <button
                 onClick={handleLogout}
                 className="text-white bg-merah-300 hover:bg-merah-200 focus:ring-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
