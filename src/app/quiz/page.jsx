@@ -6,6 +6,7 @@ import QuizList from "./QuizList";
 import QuizDetail from "./QuizDetail";
 import QuizResults from "./QuizResult";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { FaClipboardQuestion } from "react-icons/fa6";
 
 const QuizzesPage = () => {
   const [quizzes, setQuizzes] = useState([]);
@@ -32,6 +33,17 @@ const QuizzesPage = () => {
 
   return (
     <div className="w-full min-h-dvh mx-auto space-y-8 bg-merah-100 p-8 max-w-screen-xl mt-16">
+      <div className="w-full p-8 border-2 border-merah-300 rounded-xl">
+        <div className="flex items-center justify-center gap-4">
+          <FaClipboardQuestion className="size-8" />
+          <h1 className="text-2xl font-bold text-center">Quiz Rules</h1>
+        </div>
+        <div>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+      </div>
       {quizzes.length === 0 ? (
         <div className="flex flex-col justify-center items-center">
           <Player
@@ -46,14 +58,16 @@ const QuizzesPage = () => {
         </div>
       ) : (
         <div className="p-4 min-h-dvh mt-20">
-          <h1 className="text-2xl font-bold mb-4">Quizzes</h1>
-          {quizResult ? (
-            <QuizResults result={quizResult} />
-          ) : selectedQuiz ? (
-            <QuizDetail quiz={selectedQuiz} onComplete={handleQuizComplete} />
-          ) : (
-            <QuizList quizzes={quizzes} onSelect={handleSelectQuiz} />
-          )}
+          <div>
+            <h1 className="text-2xl font-bold mb-4">Daftar Quiz</h1>
+            {quizResult ? (
+              <QuizResults result={quizResult} />
+            ) : selectedQuiz ? (
+              <QuizDetail quiz={selectedQuiz} onComplete={handleQuizComplete} />
+            ) : (
+              <QuizList quizzes={quizzes} onSelect={handleSelectQuiz} />
+            )}
+          </div>
         </div>
       )}
     </div>
