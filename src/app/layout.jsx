@@ -1,6 +1,6 @@
 import "./globals.css";
 import local from "next/font/local";
-
+import { Analytics } from "@vercel/analytics/react";
 export const spartan = local({
   subsets: "latin",
   src: "./fonts/LeagueSpartan-VariableFont_wght.ttf",
@@ -21,6 +21,7 @@ export default function RootLayout({ children }) {
         className={`${spartan.variable} ${righteous.variable} ${josefin.variable} ${josefin.className} bg-merah-100`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

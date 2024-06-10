@@ -1,3 +1,5 @@
+// app/learn/layout.jsx
+
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 export const metadata = {

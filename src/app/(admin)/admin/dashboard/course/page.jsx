@@ -29,7 +29,6 @@ export default function CourseDashboard() {
     router.push("/admin/dashboard/course/create-course");
   };
 
-  // Menggunakan slug sebagai parameter untuk editCourse
   const editCourse = (slug) => {
     router.push(`/admin/dashboard/course/edit-course/${slug}`);
   };
@@ -72,7 +71,6 @@ export default function CourseDashboard() {
             <div className="" key={course.id}>
               <AdminCard
                 course={course}
-                // Menggunakan slug sebagai parameter untuk onEdit
                 onEdit={() => editCourse(course.slug)}
                 onDelete={() => deleteCourse(course.slug)}
               />

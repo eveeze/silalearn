@@ -6,12 +6,13 @@ import QuizList from "./QuizList";
 import QuizDetail from "./QuizDetail";
 import QuizResults from "./QuizResult";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { FaClipboardQuestion } from "react-icons/fa6";
+import { LuBadgeInfo } from "react-icons/lu";
 
 const QuizzesPage = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [selectedQuiz, setSelectedQuiz] = useState(null);
   const [quizResult, setQuizResult] = useState(null);
+  const [showRules, setShowRules] = useState(true); // State to control the visibility of the rules popup
 
   useEffect(() => {
     const fetchQuizzes = async () => {
@@ -31,19 +32,38 @@ const QuizzesPage = () => {
     setQuizResult(result);
   };
 
+  const handleDismissRules = () => {
+    setShowRules(false);
+  };
+
   return (
     <div className="w-full min-h-dvh mx-auto space-y-8 bg-merah-100 p-8 max-w-screen-xl mt-16">
-      <div className="w-full p-8 border-2 border-merah-300 rounded-xl">
-        <div className="flex items-center justify-center gap-4">
-          <FaClipboardQuestion className="size-8" />
-          <h1 className="text-2xl font-bold text-center">Quiz Rules</h1>
+      {showRules && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 border-2 border-merah-300 rounded-xl relative">
+            <button
+              onClick={handleDismissRules}
+              className="absolute top-2 right-2 text-red-600 font-bold"
+            >
+              &times;
+            </button>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <LuBadgeInfo className="size-8" />
+              <h1 className="text-2xl font-bold text-center">Aturan Quiz</h1>
+            </div>
+            <div>
+              <ul>
+                <li>1. Untuk mengerjakan quiz harus login terlebih dahulu.</li>
+                <li>2. Baca soal secara keseluruhan.</li>
+                <li>
+                  3. Nilai yang terhitung hanya pada pengerjaan pertama quiz .
+                </li>
+                <li>4. Jangan lupa berdoa sebelum mengerjakan.</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div>
-          <ul>
-            <li></li>
-          </ul>
-        </div>
-      </div>
+      )}
       {quizzes.length === 0 ? (
         <div className="flex flex-col justify-center items-center">
           <Player
@@ -57,9 +77,11 @@ const QuizzesPage = () => {
           <h1 className="text-4xl font-bold">Quiz Masih Kosong</h1>
         </div>
       ) : (
-        <div className="p-4 min-h-dvh mt-20">
+        <div className="p-4 min-h-dvh mt-8">
           <div>
-            <h1 className="text-2xl font-bold mb-4">Daftar Quiz</h1>
+            {!selectedQuiz && !quizResult && (
+              <h1 className="text-2xl font-bold mb-4">Daftar Quiz</h1>
+            )}
             {quizResult ? (
               <QuizResults result={quizResult} />
             ) : selectedQuiz ? (
