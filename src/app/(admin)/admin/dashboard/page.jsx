@@ -1,7 +1,7 @@
 // app/admin/dashboard/page.jsx
 
 "use client";
-
+export const revalidate = 0;
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DashboardCard from "@/components/dashboardCard";
