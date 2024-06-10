@@ -26,7 +26,7 @@ export default function AdminQuizCard({ quiz, onEdit, onDelete }) {
               onClick={onEdit}
               className="!bg-white border-2 border-merah-300 !text-merah-300 transition-colors duration-300 hover:!bg-merah-200"
             >
-              Edit Course
+              Edit Quiz
             </AdminButton2>
           </div>
           <div>
@@ -34,7 +34,7 @@ export default function AdminQuizCard({ quiz, onEdit, onDelete }) {
               onClick={onDelete}
               className="!bg-merah-300 border-2 border-merah-300 transition-colors duration-300 hover:!bg-merah-700"
             >
-              Delete Course
+              Delete Quiz
             </AdminButton2>
           </div>
         </div>

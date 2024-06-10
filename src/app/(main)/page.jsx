@@ -38,7 +38,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 mt-12 p-8 gap-8 bg-merah-100">
           <div className="mt-8 space-y-4 text-center md:text-right">
             <h1
-              className={`text-4xl md:text-[64px] font-bold text-black mt-32 ${spartan.className}`}
+              className={`text-5xl md:text-[64px] font-bold text-black mt-32 ${spartan.className}`}
             >
               Perluas Wawasan Dengan Silalearn
             </h1>

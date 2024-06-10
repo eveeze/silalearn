@@ -54,7 +54,11 @@ export default function LoginAdmin() {
         <div className="p-3 text-center">
           <h2 className="font-bold text-3xl">Admin Login</h2>
         </div>
-        {error && <div className="text-red-500 text-center mb-4">{error}</div>}
+        {error && (
+          <div className="text-white font-semibold  text-center mb-4">
+            {error}
+          </div>
+        )}
         <div>
           <Input
             type="email"
