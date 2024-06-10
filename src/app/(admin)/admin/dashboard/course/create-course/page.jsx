@@ -27,11 +27,11 @@ export default function CreateCourse() {
 
   return (
     <div className="text-white max-w-screen-sm mx-auto mt-8 p-8 md:p-16 border-2 bg-merah-300 border-merah-700 rounded-xl mb-16 ">
-      <h1 className="text-4xl font-bold mb-8">Create Course</h1>
+      <h1 className="text-4xl font-bold mb-8">Buat Video Pembelajaran</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-lg font-medium">
-            Title
+            Judul
           </label>
           <input
             type="text"
@@ -44,7 +44,7 @@ export default function CreateCourse() {
         </div>
         <div className="mb-4">
           <label htmlFor="description" className="block text-lg font-medium">
-            Description
+            Deskripsi
           </label>
           <textarea
             id="description"
@@ -56,7 +56,7 @@ export default function CreateCourse() {
         </div>
         <div className="mb-4">
           <label htmlFor="videoUrl" className="block text-lg font-medium">
-            Video URL
+            Link Video
           </label>
           <input
             type="text"
@@ -71,7 +71,7 @@ export default function CreateCourse() {
           type="submit"
           className="text-black ${josefin.className} w-full border-2 border-merah-800 bg-merah-100 focus:ring-2 focus:outline-none focus:ring-merah-700  shadow-lg shadow-red-500/50 dark:shadow-lg hover:bg-merah-200 hover:border-2 hover:border-merah-700 font-medium rounded-xl text-sm px-8 py-4 text-center me-2 mb-2 mt-4"
         >
-          Create Course
+          Buat Video Pembelajaran
         </button>
       </form>
     </div>

@@ -66,7 +66,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-3">
               <button
                 onClick={handleLogout}
-                className="text-white bg-merah-300 hover:bg-merah-200 focus:ring-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                className="text-white bg-merah-300 hover:bg-merah-500 focus:ring-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
               >
                 Logout
               </button>
@@ -115,24 +115,24 @@ export default function Navbar() {
             <li>
               <Link
                 href="/"
-                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-merah-300 md:p-0"
+                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-merah-300 md:p-0 hover:underline"
                 aria-current="page"
               >
-                Home
+                Beranda
               </Link>
             </li>
             <li>
               <Link
                 href="/learn"
-                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-merah-300 md:p-0"
+                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-merah-300 md:p-0 hover:underline"
               >
-                Learn
+                Belajar
               </Link>
             </li>
             <li>
               <Link
                 href="/quiz"
-                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-merah-300 md:p-0"
+                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-merah-300 md:p-0 hover:underline"
               >
                 Quiz
               </Link>

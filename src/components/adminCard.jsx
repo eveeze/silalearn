@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AdminButton from "./adminButton";
-import AdminButton2 from "./adminButton2"
+import AdminButton2 from "./adminButton2";
 
 export default function AdminCard({ course, onEdit, onDelete }) {
   return (
@@ -30,7 +30,7 @@ export default function AdminCard({ course, onEdit, onDelete }) {
               onClick={onEdit}
               className="!bg-white border-2 border-merah-300 !text-merah-300 transition-colors duration-300 hover:!bg-merah-200"
             >
-              Edit Course
+              Edit Video
             </AdminButton2>
           </div>
           <div>
@@ -38,7 +38,7 @@ export default function AdminCard({ course, onEdit, onDelete }) {
               onClick={onDelete}
               className="!bg-merah-300 border-2 border-merah-300 transition-colors duration-300 hover:!bg-merah-700"
             >
-              Delete Course
+              Delete Video
             </AdminButton2>
           </div>
         </div>

@@ -54,15 +54,16 @@ export default function EditCourse() {
 
   return (
     <div className="text-white max-w-screen-sm mx-auto mt-8 p-8 md:p-16 border-2 bg-merah-300 border-merah-700 rounded-xl mb-16">
-      <h1 className="text-4xl font-bold mb-8">Edit Course</h1>
+      <h1 className="text-4xl font-bold mb-8">Edit Video Pembelajaran</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-lg font-medium">
-            Title
+            Judul
           </label>
           <input
             type="text"
             id="title"
+            placeholder="Masukan Judul yang baru"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="mt-1 p-2 w-full border rounded text-black"
@@ -70,10 +71,11 @@ export default function EditCourse() {
         </div>
         <div className="mb-4">
           <label htmlFor="description" className="block text-lg font-medium">
-            Description
+            Deskripsi
           </label>
           <textarea
             id="description"
+            placeholder="Masukan Deskripsi yang baru"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="mt-1 p-2 w-full border rounded text-black h-[150px]"
@@ -81,11 +83,12 @@ export default function EditCourse() {
         </div>
         <div className="mb-4">
           <label htmlFor="videoUrl" className="block text-lg font-medium">
-            Video URL
+            Link Video
           </label>
           <input
             type="text"
             id="videoUrl"
+            placeholder="Masukan Link Video yang baru"
             value={videoUrl}
             onChange={(e) => setVideoUrl(e.target.value)}
             className="mt-1 p-2 w-full border rounded text-black"
@@ -95,7 +98,7 @@ export default function EditCourse() {
           type="submit"
           className="text-black ${josefin.className} w-full border-2 border-merah-800 bg-merah-100 focus:ring-2 focus:outline-none focus:ring-merah-700  shadow-lg shadow-red-500/50 dark:shadow-lg hover:bg-merah-200 hover:border-2 hover:border-merah-700 font-medium rounded-xl text-sm px-8 py-4 text-center me-2 mb-2 mt-4"
         >
-          Update Course
+          Update Video Pembelajaran
         </button>
       </form>
     </div>

@@ -45,11 +45,13 @@ export default function CourseDashboard() {
   return (
     <div className="min-h-screen max-w-screen-xl mx-auto space-y-8 p-8">
       <div className="flex items-center justify-center">
-        <h1 className="text-5xl mt-4 font-bold">Admin Dashboard</h1>
+        <h1 className="text-5xl mt-4 font-bold">Dashboard Admin</h1>
       </div>
       <div className="flex justify-between items-center mt-8">
         <h2 className="text-3xl font-bold">Kelola Video Pembelajaran</h2>
-        <AdminButton onClick={createCourse}>Create Course</AdminButton>
+        <AdminButton onClick={createCourse}>
+          Buat Video Pembelajaran
+        </AdminButton>
       </div>
       {courses.length === 0 ? (
         <div className="flex flex-col justify-center items-center">

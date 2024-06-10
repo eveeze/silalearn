@@ -38,7 +38,7 @@ export default function QuizPage() {
   return (
     <div className="min-h-dvh w-full mx-auto p-8 space-y-8 max-w-screen-xl">
       <div className="flex items-center justify-center">
-        <h1 className="text-5xl mt-4 font-bold">Admin Dashboard</h1>
+        <h1 className="text-5xl mt-4 font-bold">Dashboard Admin</h1>
       </div>
       <div className="flex justify-between items-center mt-8">
         <h2 className="text-3xl font-bold">Kelola Quiz</h2>
