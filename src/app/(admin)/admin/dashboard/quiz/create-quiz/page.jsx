@@ -64,7 +64,7 @@ export default function CreateQuizPage() {
 
   return (
     <div className="min-h-dvh w-full mx-auto p-8 space-y-8 max-w-screen-xl">
-      <h1 className="text-5xl mt-4 font-bold">Create Quiz</h1>
+      <h1 className="text-5xl mt-4 font-bold">Buat Quiz</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="text-2xl font-semibold" htmlFor="Quiz Title">
@@ -85,7 +85,7 @@ export default function CreateQuizPage() {
             Deskripsi
           </label>
           <textarea
-            placeholder="Description"
+            placeholder="Masukan Deskripsi Quiz"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
@@ -167,12 +167,12 @@ export default function CreateQuizPage() {
               </div>
             ))}
             <AdminButton onClick={() => handleAddOption(qIndex)}>
-              Add Option
+              Tambahkan Opsi
             </AdminButton>
           </div>
         ))}
-        <AdminButton onClick={handleAddQuestion}>Add Question</AdminButton>
-        <AdminButton type="submit">Submit Quiz</AdminButton>
+        <AdminButton onClick={handleAddQuestion}>Tambah Pertanyaan</AdminButton>
+        <AdminButton type="submit">Simpan Quiz yang dibuat</AdminButton>
       </form>
     </div>
   );

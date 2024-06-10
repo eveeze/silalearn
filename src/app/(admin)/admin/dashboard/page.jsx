@@ -39,7 +39,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen max-w-screen-xl mx-auto space-y-8 p-8">
       <div className="flex items-center justify-center">
-        <h1 className="text-5xl mt-4 font-bold">Admin Dashboard</h1>
+        <h1 className="text-5xl mt-4 font-bold">Dashboard Admin</h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -77,7 +77,7 @@ function UserQuizResults({ user }) {
             onClick={() => setShowQuizResults(!showQuizResults)}
             className="bg-merah-500 text-white px-4 py-2 rounded hover:bg-merah-700 focus:outline-none focus:ring-2 focus:ring-merah-400"
           >
-            {showQuizResults ? "Hide" : "Show"} Quiz Results
+            {showQuizResults ? "Sembunyikan" : "Tampilkan"} Hasil Quiz
           </button>
           {showQuizResults && (
             <div className="mt-4">
@@ -88,13 +88,13 @@ function UserQuizResults({ user }) {
                     <strong>Quiz:</strong> {result.quiz.title}
                   </p>
                   <p>
-                    <strong>Score:</strong> {result.score}
+                    <strong>Skor:</strong> {result.score}
                   </p>
                   <p>
                     <strong>Durasi:</strong> {result.duration} detik
                   </p>
                   <p>
-                    <strong>Started At:</strong>{" "}
+                    <strong>Mengerjakan pada :</strong>{" "}
                     {new Date(result.startedAt).toLocaleString()}
                   </p>
                 </div>

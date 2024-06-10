@@ -1,6 +1,8 @@
 import "./globals.css";
 import local from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 export const spartan = local({
   subsets: "latin",
   src: "./fonts/LeagueSpartan-VariableFont_wght.ttf",
@@ -22,6 +24,7 @@ export default function RootLayout({ children }) {
       >
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -58,19 +58,19 @@ export default function NavbarAdmin() {
         <div className="hidden md:flex space-x-8">
           <Link
             href="/admin/dashboard"
-            className="text-black text-xl font-normal"
+            className="text-black text-xl font-normal hover:underline"
           >
-            Home
+            Beranda
           </Link>
           <Link
             href="/admin/dashboard/course"
-            className="text-black text-xl font-normal"
+            className="text-black text-xl font-normal text-center hover:underline"
           >
             Course
           </Link>
           <Link
             href="/admin/dashboard/quiz"
-            className="text-black text-xl font-normal"
+            className="text-black text-xl font-normal hover:underline hover:under"
           >
             Quiz
           </Link>
@@ -109,19 +109,19 @@ export default function NavbarAdmin() {
         <div className="md:hidden bg-white p-4 space-y-2 shadow-md mt-2">
           <Link
             href="/admin/dashboard"
-            className="block text-black text-xl font-normal"
+            className="block text-black text-xl font-normal hover:underline"
           >
-            Home
+            Beranda
           </Link>
           <Link
             href="/admin/dashboard/course"
-            className="block text-black text-xl font-normal"
+            className="block text-black text-xl font-normal hover:underline"
           >
             Course
           </Link>
           <Link
             href="/admin/dashboard/quiz"
-            className="block text-black text-xl font-normal"
+            className="block text-black text-xl font-normal hover:underline"
           >
             Quiz
           </Link>
