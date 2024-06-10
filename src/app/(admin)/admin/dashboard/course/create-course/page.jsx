@@ -39,7 +39,7 @@ export default function CreateCourse() {
             value={title}
             placeholder="Masukan Judul Video Pembelajaran"
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-1 p-2 w-full border rounded "
+            className="mt-1 p-2 w-full border rounded text-black "
           />
         </div>
         <div className="mb-4">
@@ -51,7 +51,7 @@ export default function CreateCourse() {
             value={description}
             placeholder="Masukan Deskripsi Video Pembelajaran"
             onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 p-2 w-full border rounded h-[150px] "
+            className="mt-1 p-2 w-full border rounded h-[150px] text-black "
           ></textarea>
         </div>
         <div className="mb-4">
@@ -64,7 +64,7 @@ export default function CreateCourse() {
             placeholder="Masukan Link Video Pembelajaran"
             value={videoUrl}
             onChange={(e) => setVideoUrl(e.target.value)}
-            className="mt-1 p-2 w-full border rounded "
+            className="mt-1 p-2 w-full border rounded text-black"
           />
         </div>
         <button
