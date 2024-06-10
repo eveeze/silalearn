@@ -1,3 +1,5 @@
+// app/admin/dashboard/page.jsx
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -47,33 +49,60 @@ export default function Dashboard() {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-3xl font-bold">List User Dengan Nilai Pertama</h2>
+        <h2 className="text-3xl font-bold">List User dan Nilai Quiz</h2>
         <ul className="mt-4 space-y-4">
           {usersWithQuizResults.map((user) => (
-            <li key={user.id} className="border p-4 rounded-lg shadow">
-              <p>
-                <strong>Nama:</strong> {user.fullName}
-              </p>
-              <p>
-                <strong>Email:</strong> {user.email}
-              </p>
-              {user.quizResults.length > 0 && (
-                <div>
-                  <p>
-                    <strong>Hasil Quiz Pertama:</strong>
-                  </p>
-                  <p>Score: {user.quizResults[0].score}</p>
-                  <p>Durasi: {user.quizResults[0].duration} detik</p>
-                  <p>
-                    Started At:{" "}
-                    {new Date(user.quizResults[0].startedAt).toLocaleString()}
-                  </p>
-                </div>
-              )}
-            </li>
+            <UserQuizResults key={user.id} user={user} />
           ))}
         </ul>
       </div>
     </div>
+  );
+}
+
+function UserQuizResults({ user }) {
+  const [showQuizResults, setShowQuizResults] = useState(false);
+
+  return (
+    <li className="border p-4 rounded-lg shadow">
+      <p>
+        <strong>Nama:</strong> {user.fullName}
+      </p>
+      <p>
+        <strong>Email:</strong> {user.email}
+      </p>
+      {user.quizResults.length > 0 && (
+        <div className="mt-4">
+          <button
+            onClick={() => setShowQuizResults(!showQuizResults)}
+            className="bg-merah-500 text-white px-4 py-2 rounded hover:bg-merah-700 focus:outline-none focus:ring-2 focus:ring-merah-400"
+          >
+            {showQuizResults ? "Hide" : "Show"} Quiz Results
+          </button>
+          {showQuizResults && (
+            <div className="mt-4">
+              <p className="font-bold">Hasil Quiz:</p>
+              {user.quizResults.map((result, index) => (
+                <div key={index} className="mt-2 p-4 border rounded shadow-sm">
+                  <p>
+                    <strong>Quiz:</strong> {result.quiz.title}
+                  </p>
+                  <p>
+                    <strong>Score:</strong> {result.score}
+                  </p>
+                  <p>
+                    <strong>Durasi:</strong> {result.duration} detik
+                  </p>
+                  <p>
+                    <strong>Started At:</strong>{" "}
+                    {new Date(result.startedAt).toLocaleString()}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </li>
   );
 }

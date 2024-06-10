@@ -8,8 +8,11 @@ export async function GET() {
       where: { role: "USER" },
       include: {
         quizResults: {
+          distinct: ["quizId"],
           orderBy: { startedAt: "asc" },
-          take: 1, // Get the first quiz result
+          include: {
+            quiz: true,
+          },
         },
       },
     });
